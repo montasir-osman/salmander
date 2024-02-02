@@ -27,15 +27,24 @@
 
         #language-buttons {
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Align buttons vertically on small screens */
+            align-items: center;
             margin-top: 20px;
         }
 
         button {
-            margin: 0 10px;
+            margin: 10px;
             padding: 10px;
             font-size: 16px;
             cursor: pointer;
+        }
+
+        @media only screen and (min-width: 600px) {
+            /* Adjust styles for screens larger than 600px wide */
+            #language-buttons {
+                flex-direction: row; /* Align buttons horizontally on larger screens */
+                justify-content: center;
+            }
         }
     </style>
 </head>

@@ -31,20 +31,16 @@
         }
 
         nav a {
-            margin: 0 20px;
+            margin: 0 10px;
             text-decoration: none;
             color: #555;
-            font-size: 18px;
+            font-size: 14px;
             transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #333;
         }
 
         .tab-content {
             display: none;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
         }
 
@@ -54,15 +50,15 @@
 
         .menu-item {
             border: 1px solid #ddd;
-            margin: 20px;
-            padding: 20px;
+            margin: 10px;
+            padding: 10px;
             text-align: center;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            width: 250px; /* Adjust the size as needed */
-            height: 250px; /* Adjust the size as needed */
-            display: inline-block;
+            border-radius: 10px;
+            width: 80%; /* Adjust the size as needed */
+            max-width: 300px; /* Set a maximum width */
+            margin: 10px auto; /* Center the items */
             transition: transform 0.3s ease;
         }
 
@@ -71,27 +67,37 @@
         }
 
         img {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
-            border-radius: 50%;
+            border-radius: 10px;
             margin-bottom: 10px;
         }
 
         h2 {
             color: #ff6f61;
-            font-size: 24px;
+            font-size: 18px;
             font-family: 'Dancing Script', cursive; /* Change to your preferred font-family */
+        }
+
+        @media only screen and (min-width: 600px) {
+            nav a {
+                font-size: 16px;
+            }
+
+            .menu-item {
+                width: 40%;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1 style="font-size: 2.5em;">Salmander Restaurant - English Menu</h1>
+        <h1 style="font-size: 2em;">Salmander Restaurant - English Menu</h1>
     </header>
 
     <nav>
-        <a href="#" onclick="showTab('pasta')">Pasta</a>
+       <a href="#" onclick="showTab('pasta')">Pasta</a>
         <a href="#" onclick="showTab('burgers-fries')">Burgers and Fries</a>
         <a href="#" onclick="showTab('pizza')">Pizza</a>
         <a href="#" onclick="showTab('toast')">Toast</a>
@@ -758,15 +764,16 @@
     <p>Chicken Mandi - 15 Dhs</p>
 </div>
       </section>
-    <!-- Add similar sections for other menu categories -->
-
     <script>
+        // Function to show/hide tabs
         function showTab(tabId) {
+            // Hide all tabs
             var tabs = document.querySelectorAll('.tab-content');
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active-tab');
-            }
+            tabs.forEach(function (tab) {
+                tab.classList.remove('active-tab');
+            });
 
+            // Show the selected tab
             var selectedTab = document.getElementById(tabId);
             if (selectedTab) {
                 selectedTab.classList.add('active-tab');
