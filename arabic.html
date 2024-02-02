@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salmander Restaurant - القائمة</title>
+    <style>
+        body {
+            font-family: 'Indie Flower', cursive;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('image-004.png');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #eee;
+            padding: 15px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #555;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #333;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            text-align: right;
+        }
+
+        .active-tab {
+            display: block;
+        }
+
+        .menu-item {
+            border: 1px solid #ddd;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            width: 200px; /* Adjust the size as needed */
+            height: 200px; /* Adjust the size as needed */
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #ff6f61;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="font-size: 2.5em;">مطعم سلمندر</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showTab('pasta')">باستا</a>
+        <a href="#" onclick="showTab('burgers-fries')">برجر وبطاطا</a>
+        <a href="#" onclick="showTab('pizza')">بيتزا</a>
+        <a href="#" onclick="showTab('toast')">توست</a>
+        <a href="#" onclick="showTab('desserts')">حلويات</a>
+        <a href="#" onclick="showTab('shawarma-sandwiches')">شاورما وسندويشات</a>
+        <a href="#" onclick="showTab('juices')">عصائر</a>
+        <a href="#" onclick="showTab('specialty-coffee')">قهوة متخصصة</a>
+        <a href="#" onclick="showTab('knafa')">كنافة</a>
+        <a href="#" onclick="showTab('appetizers')">مقبلات</a>
+        <a href="#" onclick="showTab('mohito')">موهيتو</a>
+        <a href="#" onclick="showTab('milkshake')">ميلك شيك</a>
+        <a href="#" onclick="showTab('main-courses')">وجبات رئيسية</a>
+        <a href="home.html">العودة إلى الصفحة الرئيسية</a>
+    </nav>
+
+    <section id="pasta" class="tab-content active-tab">
+    <h2>باستا</h2>
+    <!-- باستا menu items here -->
+    <div class="menu-item">
+        <img src="https://i.ibb.co/swRqzYM/35.jpg" alt="باستا الفريدو">
+        <p>باستا الفريدو - 35 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/xjwK6P1/35.jpg" alt="باستا وردية">
+        <p>باستا وردية - 35 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/Gv3NrV0/45.jpg" alt="باستابالروبيان">
+        <p>باستا بالروبيان - 45 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/NtgZZq4/35.jpg" alt="سباغيتي باللحم">
+        <p>سباغيتي باللحم - 35 درهم</p>
+    </div>
+</section>
+
+<section id="burgers-fries" class="tab-content">
+    <h2>برغر وبطاطس</h2>
+    <!-- برغر وبطاطس menu items here -->
+    <div class="menu-item">
+        <img src="https://i.ibb.co/FYKkG7k/22.jpg" alt="برغر الدجاج الحار">
+        <p>برغر الدجاج الحار - 22 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/KLmy524/22.jpg" alt="برغر الدجاج الكلاسيكي">
+        <p>برغر الدجاج الكلاسيكي - 22 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/q5PC7yj/30.jpg" alt="برغر لحم بالفطر">
+        <p>برغر لحم بالفطر - 30 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/QbCTTKH/45.jpg" alt="برغر لحم بريوش">
+        <p>برغر لحم بريوش - 45 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/zXg7qJr/25.jpg" alt="برغر لحم كلاسيكي">
+        <p>برغر لحم كلاسيكي - 25 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/RPkxrZZ/15.jpg" alt="بطاطس بالجبن">
+        <p>بطاطس بالجبن - 15 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/0VvLMkZ/15.jpg" alt="بطاطس دايناميت">
+        <p>بطاطس دايناميت - 15 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/b1ZBnKp/7.jpg" alt="بطاطس مقلية">
+        <p>بطاطس مقلية - 7 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/0cMXbhR/15.jpg" alt="بطاطس محشوة">
+        <p>بطاطس محشوة - 15 درهم</p>
+    </div>
+</section>
+
+<section id="pizza" class="tab-content">
+    <h2>بيتزا</h2>
+    <!-- بيتزا menu items here -->
+    <div class="menu-item">
+        <img src="https://i.ibb.co/KXWjW98/28.jpg" alt="بيتزا نباتية (متوسطة)">
+        <p>بيتزا نباتية (متوسطة) - 28 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/F0mswZ7/38.jpg" alt="بيتزا الدجاج الحار (كبيرة)">
+        <p>بيتزا الدجاج الحار (كبيرة) - 38 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/R7KfC5m/32.jpg" alt="بيتزا اللحم والفطر (كبيرة)">
+        <p>بيتزا اللحم والفطر (كبيرة) - 32 درهم</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://i.ibb.co/4NMP2nX/30.jpg" alt="بيتزا البيبروني والزيتون (صغيرة)">
+        <p>بيتزا البيبروني والزيتون (صغيرة) - 30 درهم</p>
+    </div>
+</section>
+
+<section id="toast" class="tab-content">
+        <h2>توست</h2>
+        <!-- توست menu items here -->
+        <div class="menu-item">
+            <img src="https://i.ibb.co/QbcQSfT/12.jpg" alt="توست بيتزا خضار">
+            <p>توست بيتزا خضار - 12 درهم</p>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://i.ibb.co/QbcQSfT/12.jpg" alt="توست بيتزا دجاج">
+            <p>توست بيتزا دجاج - 12درهم</p>
+        </div>
+
+<div class="menu-item">
+            <img src="https://i.ibb.co/LS0jVH3/8.jpg" alt="توست بيض">
+            <p>توست بيض - 8 درهم</p>
+        </div>
+
+<div class="menu-item">
+            <img src="https://i.ibb.co/PFvTCzc/10.jpg" alt="توست جبن وزعتر">
+            <p>توست جبن وزعتر- 10 درهم</p>
+        </div>
+
+<div class="menu-item">
+            <img src="https://i.ibb.co/bBqhT5N/8.jpg" alt="توست كرافت عسل">
+            <p>توست كرافت عسل - 8 درهم</p>
+        </div>
+
+<div class="menu-item">
+            <img src="https://i.ibb.co/FbL4RMB/10.jpg" alt="توست مارغيريتا">
+            <p>توست مارغيريتا - 10 درهم</p>
+        </div>
+    </section>
+
+<section id="desserts" class="tab-content">
+        <h2>حلويات</h2>
+        <!-- حلويات menu items here -->
+        <div class="menu-item">
+            <img src="https://i.ibb.co/HGRjz5n/35.jpg" alt="تشيز كيك">
+            <p>تشيز كيك - 35 درهم</p>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://i.ibb.co/270p2wb/36.jpg" alt="دانيز كوكيز">
+            <p>دانيز كوكيز - 36 درهم</p>
+        </div>
+
+<div class="menu-item">
+            <img src="https://i.ibb.co/mFQbkj8/23.jpg" alt="كيكة سان سباستيان">
+            <p>كيكة سان سباستيان - 23 درهم</p>
+        </div>
+
+<div class="menu-item">
+            <img src="https://i.ibb.co/njyb69t/28.jpg" alt="كيكة سلمندر">
+            <p>كيكة سلمندر  - 28 درهم</p>
+        </div>
+
+        <<div class="menu-item">
+            <img src="https://i.ibb.co/PjJNRRG/25.jpg" alt="كيكة شوكولاتة">
+            <p>كيكة شوكولاتة  - 25 درهم</p>
+        </div>
+    </section>
+
+<section id="shawarma-sandwiches" class="tab-content">
+        <h2>شاورما وسندويشات</h2>
+        <!-- شاورما وسندويشات menu items here -->
+        <div class="menu-item">
+            <img src="https://i.ibb.co/QFvYn3r/12.jpg" alt="تشكن راب">
+            <p>تشكن راب - 12</p>
+        </div>
+
+        <div class="menu-item">
+    <img src="https://i.ibb.co/f0hYyHB/16.jpg" alt="ساندويتش الحلومي">
+    <p>ساندويتش الحلومي - 16 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/pKh6nnR/20.jpg" alt="ساندويتش الكبدة">
+    <p>ساندويتش الكبدة - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/3C2KCYZ/18.jpg" alt="شاورما إيطالية">
+    <p>شاورما إيطالية - 18 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/QYRq4G4/15.jpg" alt="شاورما دجاج عربية">
+    <p>شاورما دجاج عربية - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/d5mR9p1/8.jpg" alt="شاورما كلاسيكية">
+    <p>شاورما كلاسيكية - 8 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/HH5nXGz/8.jpg" alt="شاورما مكسيكية">
+    <p>شاورما مكسيكية - 8 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/NxgrQyv/22.jpg" alt="فاهيتا دجاج">
+    <p>فاهيتا دجاج - 22 درهم</p>
+</div>
+
+<section id="juices" class="tab-content">
+        <h2>عصائر</h2>
+        <!-- عصائر menu items here -->
+        <div class="menu-item">
+    <img src="https://i.ibb.co/Wsyf9b8/15.jpg" alt="أفوكادو عسل">
+    <p>أفوكادو عسل - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/Zx5mn3M/15.jpg" alt="برتقال">
+    <p>برتقال - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/yP9xz9q/20.jpg" alt="برتقال وأناناس">
+    <p>برتقال وأناناس - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/F69hbVd/20.jpg" alt="برتقال وجزر">
+    <p>برتقال وجزر - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/dB2cBzF/15.jpg" alt="بطيخ">
+    <p>بطيخ - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/n0QRZf8/4.jpg" alt="بيبسي">
+    <p>بيبسي - 4 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/xGWV6cC/4.jpg" alt="دايت بيبسي">
+    <p>دايت بيبسي - 4 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/BrrtdhP/15.jpg" alt="تفاح">
+    <p>تفاح - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/YbCM1d9/15.jpg" alt="رمان">
+    <p>رمان - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/h23XyLR/20.jpg" alt="رمان وبنجر">
+    <p>رمان وبنجر - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/crSJkqp/4.jpg" alt="7 أب">
+    <p>7 أب - 4 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/bHFp414/20.jpg" alt="سلمندر سبيشال">
+    <p>سلمندر سبيشال - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/qWjFFQD/4.jpg" alt="شاني">
+    <p>شاني - 4 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/w6qF81w/12.jpg" alt="فيمتو">
+    <p>فيمتو - 12 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/93f7vt1/20.jpg" alt="كوكتيل">
+    <p>كوكتيل - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/tKtFmqr/20.jpg" alt="شاي ليمون مثلج">
+    <p>شاي ليمون مثلج - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/jgG5xz5/12.jpg" alt="ليمون نعناع">
+    <p>ليمون نعناع - 12 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/2Fz8CVZ/12.jpg" alt="مانجو">
+    <p>مانجو - 12 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/gRfPsYC/12.jpg" alt="موز حليب">
+    <p>موز حليب - 12 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/N1LCTPn/5.jpg" alt="ماء كبير">
+    <p>ماء كبير - 5 دراهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/6tKTSJT/4.jpg" alt="ميرندا">
+    <p>ميرندا - 4 دراهم</p>
+</div>
+    </section>
+
+<section id="specialty-coffee" class="tab-content">
+        <h2>قهوة متخصصة</h2>
+        <!-- قهوة متخصصة menu items here -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/w7rnh5r/28-V60.jpg" alt="بارد V60">
+    <p>بارد V60 - 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/KL2q0gF/28-V60.jpg" alt="حار V60">
+    <p>حار V60 - 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/GPRNKng/18.jpg" alt="إسبريسو">
+    <p>إسبريسو - 18 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/GPRNKng/18.jpg" alt="دبل إسبريسو">
+    <p>دبل إسبريسو - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/hW8qByp/20.jpg" alt="أمريكانو بارد">
+    <p>أمريكانو بارد - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/JHFp6GD/20.jpg" alt="أمريكانو ساخن">
+    <p>أمريكانو ساخن - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/VH1N3vg/28.jpg" alt="بستاشو لاتيه بارد">
+    <p> بستاشو لاتيه بارد- 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/W3DfSkz/28.jpg" alt="روز لاتيه بارد">
+    <p> روز لاتيه بارد - 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/w609K1x/28.jpg" alt="روز لاتيه حار">
+    <p> روز لاتيه حار - 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/zVYw8T7/28.jpg" alt="زعفران لاتيه بارد">
+    <p> زعفران لاتيه بارد- 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/SRY85qV/28.jpg" alt="زعفران لاتيه حار">
+    <p> زعفران لاتيه حار- 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/1zxB1Yg/25.jpg" alt="سبانيش لاتيه بارد">
+    <p> سبانيش لاتيه بارد - 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/vBV2VQ1/25.jpg" alt="سبانيش لاتيه حار">
+    <p> سبانيش لاتيه حار- 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/W5fRDf2/21.jpg" alt="شوكولاتة إيطالية حارة ">
+    <p>شوكولاتة إيطالية حارة  - 21 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/YcQPTdv/23.jpg" alt="فلات وايت حار">
+    <p>فلات وايت حار - 23 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/ccZdY70/15.jpg" alt="قهوة تركية">
+    <p>قهوة تركية - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/FbzBb0v/25.jpg" alt="قهوة عربية">
+    <p>قهوة عربية - 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/YcQPTdv/23.jpg" alt="كابتشينو حار">
+    <p>كابتشينو حار - 23 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/J5TYjCj/22.jpg" alt="كورتادو بارد">
+    <p>كورتادو بارد - 22 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/yYtTQCz/22.jpg" alt="كورتادو سخن">
+    <p>كورتادو سخن- 22 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/YcQPTdv/23.jpg" alt="كوفي لاتيه">
+    <p>كوفي لاتيه - 23 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/hW8qByp/20.jpg" alt="كولد برو">
+    <p>كولد برو - 30 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/B6X5Zpx/25.jpg" alt="ماتشا بارد">
+    <p>ماتشا بارد- 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/sqdxG4s/25.jpg" alt="ماتشا حار">
+    <p>ماتشا حار - 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/Y8czR0W/20.jpg" alt="ماكياتو">
+    <p>ماكياتو - 20 درهم</p>
+</div>
+
+    </section>
+
+<section id="knafa" class="tab-content">
+        <h2>كنافة</h2>
+        <!-- كنافة menu items here -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/2PxwWCC/15.jpg" alt="كنافة جبن">
+    <p>كنافة جبن - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/gVwZTFC/20.jpg" alt="كنافة فستق">
+    <p>كنافة فستق - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/hcK7Vx5/15.jpg" alt="كنافة قشطة">
+    <p>كنافة قشطة - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/PZNsX8F/20.jpg" alt="كنافة مشكلة">
+    <p>كنافة مشكلة - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/d4FjgxW/20.jpg" alt="كنافة نوتيلا">
+    <p>كنافة نوتيلا - 20 درهم</p>
+</div>
+      </section>
+
+
+<section id="appetizers" class="tab-content">
+        <h2>مقبلات</h2>
+        <!-- مقبلات menu items here -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/N3QZMdK/13.jpg" alt="تبولة">
+    <p>تبولة - 13 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/XJY4Zwt/13.jpg" alt="حمص">
+    <p>حمص - 13 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/N1YZN38/25.jpg" alt="حمص مع لحم">
+    <p>حمص مع لحم - 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/c1JzkNJ/15.jpg" alt="حمص بيروت">
+    <p>حمص بيروت - 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/XbshPs4/13.jpg" alt="سلطة الجرجير">
+    <p>سلطة الجرجير - 13 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/0GH8G5C/13.jpg" alt="سلطة عربية">
+    <p>سلطة عربية - 13 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/PgHTxNr/10.jpg" alt="شوربة عدس">
+    <p>شوربة عدس - 10 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/1T65KT3/20-min.jpg" alt="شوربة المشروم">
+    <p>شوربة المشروم - 20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/0BrmWD1/13.jpg" alt="فتوش">
+    <p>فتوش - 13 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/rpQwrVT/13.jpg" alt="لبنة">
+    <p>لبنة - 13 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/c80x40T/15.jpg" alt="لبنة حارة">
+    <p>لبنة حارة - 15 درهم</p>
+</div>
+
+     </section>
+
+<section id="mohito" class="tab-content">
+        <h2>mohito</h2>
+        <!-- mohito menu items here -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/nbPTrdq/20.jpg" alt="Passion Fruit Mojito">
+    <p>Passion Fruit Mojito - 20 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/HhVMkVy/20.jpg" alt="Blueberry Mojito">
+    <p>Blueberry Mojito - 20 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/g6F95Jt/20.jpg" alt="Sky Mojito">
+    <p>Sky Mojito - 20 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/TgcvpHh/20.jpg" alt="Strawberry Mojito">
+    <p>Strawberry Mojito - 20 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/b1cPm5Q/25.jpg" alt="Vitamin C Mojito">
+    <p>Vitamin C Mojito - 25 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/YRnnh6w/20.jpg" alt="Classic Mojito">
+    <p>Classic Mojito - 20 Dhs</p>
+</div>
+     </section>
+
+<section id="milkshake" class="tab-content">
+        <h2>milkshake</h2>
+        <!-- milkshake menu items here -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/2SgwQfR/25.jpg" alt="Rose Milkshake">
+    <p>Rose Milkshake - 25 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/Sv2wtwZ/25.jpg" alt="Saffron Milkshake">
+    <p>Saffron Milkshake - 25 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/QXdw199/25.jpg" alt="Chocolate Milkshake">
+    <p>Chocolate Milkshake - 25 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/1MdK2SD/25.jpg" alt="Strawberry Milkshake">
+    <p>Strawberry Milkshake - 25 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/F7qRFz2/25.jpg" alt="Pistachio Milkshake">
+    <p>Pistachio Milkshake - 25 Dhs</p>
+</div>
+
+<div class="menu-item">
+    <img src="https://i.ibb.co/XZyqkn2/25.jpg" alt="Coffee Milkshake">
+    <p>Coffee Milkshake - 25 Dhs</p>
+</div>
+      </section>
+
+<section id="main-courses" class="tab-content">
+        <h2>main-courses</h2>
+        <!-- main-courses menu items here -->
+<!-- Chicken Wings Salamander 15 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/Gn3RJ4W/15.jpg" alt="Chicken Wings Salamander">
+    <p>Chicken Wings Salamander - 15 Dhs</p>
+</div>
+
+<!-- Chicken Nuggets 18 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/f0hFXh2/18.jpg" alt="Chicken Nuggets">
+    <p>Chicken Nuggets - 18 Dhs</p>
+</div>
+
+<!-- Sausage 45 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/dkbVC0v/45.jpg" alt="Sausage">
+    <p>Sausage - 45 Dhs</p>
+</div>
+
+<!-- Salmon Steak 85 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/bQ4gxDY/85.jpg" alt="Salmon Steak">
+    <p>Salmon Steak - 85 Dhs</p>
+</div>
+
+<!-- Meat Araies 30 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/hR0gX1b/30.jpg" alt="Meat Araies">
+    <p>Meat Araies - 30 Dhs</p>
+</div>
+
+<!-- Chicken Fajita 35 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/417ppGR/35.jpg" alt="Chicken Fajita">
+    <p>Chicken Fajita - 35 Dhs</p>
+</div>
+
+<!-- Chicken Musahab 22 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/5kqQJJZ/22.jpg" alt="Chicken Musahab">
+    <p>Chicken Musahab - 22 Dhs</p>
+</div>
+
+<!-- Chicken Mazbi 20 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/9NXhg8M/20.jpg" alt="Chicken Mazbi">
+    <p>Chicken Mazbi - 20 Dhs</p>
+</div>
+
+<!-- Chicken Mandi 15 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/F06599L/15.jpg" alt="Chicken Mandi">
+    <p>Chicken Mandi - 15 Dhs</p>
+</div>
+      </section>
+
+    <script>
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll('.tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active-tab');
+            }
+
+            var selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active-tab');
+            }
+        }
+    </script>
+</body>
+
+</html>
