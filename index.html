@@ -7,43 +7,124 @@
     <title>Salmander Restaurant</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
+            color: #333;
+            overflow: hidden;
         }
 
         header {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
-            padding: 10px;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
         }
 
         #logo {
             max-width: 100%;
             height: auto;
             margin: 20px 0;
+            animation: pulseLogo 2s infinite;
         }
 
         #language-buttons {
             display: flex;
-            flex-direction: column; /* Align buttons vertically on small screens */
-            align-items: center;
+            justify-content: center;
             margin-top: 20px;
         }
 
         button {
-            margin: 10px;
+            margin: 0 10px;
             padding: 10px;
             font-size: 16px;
             cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        @media only screen and (min-width: 600px) {
-            /* Adjust styles for screens larger than 600px wide */
-            #language-buttons {
-                flex-direction: row; /* Align buttons horizontally on larger screens */
-                justify-content: center;
+        button:hover {
+            background-color: #555;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin-top: 100px; /* Adjust to keep menu below header */
+        }
+
+        .menu-item {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 80%; /* Adjust the size as needed */
+            max-width: 300px; /* Set a maximum width */
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeInAndOut 2s forwards;
+            z-index: 2; /* Ensure it's above other elements */
+        }
+
+        .welcome-text {
+            font-size: 30px;
+            font-weight: bold; /* Add this line for bold text */
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        @keyframes pulseLogo {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeInAndOut {
+            0%, 100% {
+                opacity: 0;
+            }
+
+            10%, 90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
             }
         }
     </style>
@@ -54,17 +135,28 @@
         <h1>Salmander Restaurant</h1>
     </header>
 
-    <img id="logo" src="https://i.ibb.co/vZrQwx2/logo.jpg" alt="Restaurant Logo">
+    <img id="logo" src="https://i.ibb.co/y4162L4/image-001.png" alt="Restaurant Logo">
 
     <div id="language-buttons">
         <button onclick="navigateTo('english.html')">English</button>
         <button onclick="navigateTo('arabic.html')">عربي</button>
     </div>
 
+
+    <div class="welcome-container">
+        <div class="welcome-text">Welcome حياك</div>
+    </div>
+
     <script>
         function navigateTo(page) {
             window.location.href = page;
         }
+
+        // Delay the welcome message
+        setTimeout(() => {
+            const welcomeContainer = document.querySelector(".welcome-container");
+            welcomeContainer.style.display = "none";
+        }, 2000);
     </script>
 </body>
 
