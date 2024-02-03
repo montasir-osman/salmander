@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -88,42 +88,77 @@
                 width: 40%;
             }
         }
-.menu {
-  text-align: center;
-}
 
-.menu-toggle {
-  display: block;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #333;
-  color: #fff;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-.menu-items {
-  display: none;
-  text-align: left;
-}
+        .menu {
+            background-color: #f8f8f8;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
 
-.menu-items a {
-  display: block;
-  padding: 10px;
-  background-color: #eee;
-  text-decoration: none;
-  color: #333;
-  border-bottom: 1px solid #ccc;
-}
+        .menu-toggle {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .menu-items {
+            display: none;
+            padding: 10px;
+        }
+
+        .menu-items a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-items.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f8f8f8;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        .menu-items.active a {
+            z-index: 1;
+        }
+
+        .menu-items.active a:hover {
+            background-color: #ddd; /* Optional: Change background color on hover */
+        }
+
+        /* Enable pointer events for menu items to ensure they are clickable */
+        .menu-items.active a {
+            pointer-events: auto;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <h1 style="font-size: 2em;">Salmander Restaurant - English Menu</h1>
+        <h1 style="font-size: 2em;">Salamander Restaurant - English Menu</h1>
     </header>
 
-    <nav class="menu">
-  <div class="menu-toggle" onclick="toggleMenu()">☰ Menu</div>
-  <div class="menu-items">
+   <nav class="menu">
+        <div class="menu-toggle" onclick="toggleMenu(event)">☰ Menu</div>
+        <div class="menu-items" id="menuItems">
     <a href="#" onclick="showTab('pasta')">Pasta</a>
     <a href="#" onclick="showTab('burgers-fries')">Burgers and Fries</a>
     <a href="#" onclick="showTab('pizza')">Pizza</a>
@@ -140,8 +175,6 @@
     <a href="home.html">Back to Home</a>
   </div>
 </nav>
-
-
 
     <section id="pasta" class="tab-content active-tab">
         <h2>Pasta</h2>
@@ -794,25 +827,30 @@
     <p>Chicken Mandi - 15 Dhs</p>
 </div>
       </section>
-    <script>
-function toggleMenu() {
-  var menuItems = document.querySelector('.menu-items');
-  menuItems.style.display = (menuItems.style.display === 'block') ? 'none' : 'block';
-}
-        // Function to show/hide tabs
+<script>
+        function toggleMenu(event) {
+            const menuItems = document.getElementById('menuItems');
+            menuItems.classList.toggle('active');
+            event.stopPropagation(); // Prevent the click event from reaching the body
+        }
+
         function showTab(tabId) {
-            // Hide all tabs
-            var tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(function (tab) {
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => {
                 tab.classList.remove('active-tab');
             });
 
-            // Show the selected tab
-            var selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.classList.add('active-tab');
-            }
+            const selectedTab = document.getElementById(tabId);
+            selectedTab.classList.add('active-tab');
         }
+
+        // Close the menu when clicking outside of it
+        document.body.addEventListener('click', function () {
+            const menuItems = document.getElementById('menuItems');
+            if (menuItems.classList.contains('active')) {
+                menuItems.classList.remove('active');
+            }
+        });
     </script>
 </body>
 
