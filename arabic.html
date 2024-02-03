@@ -7,13 +7,11 @@
     <title>Salmander Restaurant - القائمة</title>
     <style>
         body {
-            font-family: 'Indie Flower', cursive;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
-            background-image: url('image-004.png');
-            background-size: cover;
-            background-position: center;
+            background-color: #f7f7f7;
             color: #333;
         }
 
@@ -32,21 +30,17 @@
         }
 
         nav a {
-            margin: 0 20px;
+            margin: 0 10px;
             text-decoration: none;
             color: #555;
-            font-size: 18px;
+            font-size: 14px;
             transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #333;
         }
 
         .tab-content {
             display: none;
-            padding: 20px;
-            text-align: right;
+            padding: 10px;
+            text-align: center;
         }
 
         .active-tab {
@@ -55,15 +49,15 @@
 
         .menu-item {
             border: 1px solid #ddd;
-            margin: 20px;
-            padding: 20px;
+            margin: 10px;
+            padding: 10px;
             text-align: center;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            width: 200px; /* Adjust the size as needed */
-            height: 200px; /* Adjust the size as needed */
-            display: inline-block;
+            border-radius: 10px;
+            width: 80%; /* Adjust the size as needed */
+            max-width: 300px; /* Set a maximum width */
+            margin: 10px auto; /* Center the items */
             transition: transform 0.3s ease;
         }
 
@@ -72,15 +66,88 @@
         }
 
         img {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
-            border-radius: 50%;
+            border-radius: 10px;
             margin-bottom: 10px;
         }
 
         h2 {
             color: #ff6f61;
-            font-size: 24px;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive; /* Change to your preferred font-family */
+        }
+
+        @media only screen and (min-width: 600px) {
+            nav a {
+                font-size: 16px;
+            }
+
+            .menu-item {
+                width: 40%;
+            }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            background-color: #f8f8f8;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-toggle {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .menu-items {
+            display: none;
+            padding: 10px;
+        }
+
+        .menu-items a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-items.active {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Change from absolute to relative */
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    direction: rtl; /* Set the text direction to right-to-left for Arabic */
+}
+
+
+        .menu-items.active a {
+            z-index: 1;
+        }
+
+        .menu-items.active a:hover {
+            background-color: #ddd; /* Optional: Change background color on hover */
+        }
+
+        /* Enable pointer events for menu items to ensure they are clickable */
+        .menu-items.active a {
+            pointer-events: auto;
         }
     </style>
 </head>
@@ -90,22 +157,82 @@
         <h1 style="font-size: 2.5em;">مطعم سلمندر</h1>
     </header>
 
-    <nav>
-        <a href="#" onclick="showTab('pasta')">باستا</a>
-        <a href="#" onclick="showTab('burgers-fries')">برجر وبطاطا</a>
-        <a href="#" onclick="showTab('pizza')">بيتزا</a>
-        <a href="#" onclick="showTab('toast')">توست</a>
-        <a href="#" onclick="showTab('desserts')">حلويات</a>
-        <a href="#" onclick="showTab('shawarma-sandwiches')">شاورما وسندويشات</a>
-        <a href="#" onclick="showTab('juices')">عصائر</a>
-        <a href="#" onclick="showTab('specialty-coffee')">قهوة متخصصة</a>
-        <a href="#" onclick="showTab('knafa')">كنافة</a>
-        <a href="#" onclick="showTab('appetizers')">مقبلات</a>
-        <a href="#" onclick="showTab('mohito')">موهيتو</a>
-        <a href="#" onclick="showTab('milkshake')">ميلك شيك</a>
-        <a href="#" onclick="showTab('main-courses')">وجبات رئيسية</a>
-        <a href="home.html">العودة إلى الصفحة الرئيسية</a>
+    <nav class="mobile-menu">
+        <div class="menu-toggle" onclick="toggleMenu(event)">☰ القائمة</div>
+        <div class="menu-items" id="menuItems">
+            <a href="#" onclick="showTab('main-courses')">وجبات رئيسية</a>
+            <a href="#" onclick="showTab('pasta')">باستا</a>
+            <a href="#" onclick="showTab('burgers-fries')">برجر وبطاطا</a>
+            <a href="#" onclick="showTab('pizza')">بيتزا</a>
+            <a href="#" onclick="showTab('toast')">توست</a>
+            <a href="#" onclick="showTab('desserts')">حلويات</a>
+            <a href="#" onclick="showTab('shawarma-sandwiches')">شاورما وسندويشات</a>
+            <a href="#" onclick="showTab('juices')">عصائر</a>
+            <a href="#" onclick="showTab('specialty-coffee')">قهوة متخصصة</a>
+            <a href="#" onclick="showTab('knafa')">كنافة</a>
+            <a href="#" onclick="showTab('appetizers')">مقبلات</a>
+            <a href="#" onclick="showTab('Mojito')">موهيتو</a>
+            <a href="#" onclick="showTab('milkshake')">ميلك شيك</a>
+            <a href="home.html">العودة إلى الصفحة الرئيسية</a>
+        </div>
     </nav>
+<section id="main-courses" class="tab-content">
+        <h2>وجبات رئيسية</h2>
+        <!-- main-courses menu items here -->
+<!-- Chicken Wings Salamander 15 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/Gn3RJ4W/15.jpg" alt="أجنحة دجاج سلمندر">
+    <p>أجنحة دجاج سلمندر - 15 درهم</p>
+</div>
+
+<!-- Chicken Nuggets 18 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/f0hFXh2/18.jpg" alt="دجاج نيكت">
+    <p>دجاج نيكت - 18 درهم</p>
+</div>
+
+<!-- Sausage 45 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/dkbVC0v/45.jpg" alt="سجق">
+    <p>سجق - 45 درهم</p>
+</div>
+
+<!-- Salmon Steak 85 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/bQ4gxDY/85.jpg" alt="سلمندر ستيك">
+    <p>سلمندر ستيك - 85 درهم</p>
+</div>
+
+<!-- Meat Araies 30 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/hR0gX1b/30.jpg" alt="عرايس لحم">
+    <p>عرايس لحم - 30 درهم</p>
+</div>
+
+<!-- Chicken Fajita 35 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/417ppGR/35.jpg" alt="فاهيتا دجاج">
+    <p>فاهيتا دجاج - 35 درهم</p>
+</div>
+
+<!-- Chicken Musahab 22 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/5kqQJJZ/22.jpg" alt="مسحب دجاج">
+    <p>مسحب دجاج - 22 درهم</p>
+</div>
+
+<!-- Chicken Mazbi 20 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/9NXhg8M/20.jpg" alt="مظبي دجاج">
+    <p>مظبي دجاج - 20 درهم</p>
+</div>
+
+<!-- Chicken Mandi 15 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/F06599L/15.jpg" alt="مندي دجاج">
+    <p>مندي دجاج - 15 درهم</p>
+</div>
+      </section>
 
     <section id="pasta" class="tab-content active-tab">
     <h2>باستا</h2>
@@ -310,9 +437,11 @@
     <p>فاهيتا دجاج - 22 درهم</p>
 </div>
 
-<section id="juices" class="tab-content">
-        <h2>عصائر</h2>
-        <!-- عصائر menu items here -->
+</section>
+
+<section id="juices" class="tab-content active-tab">
+    <h2>عصائر</h2>
+    <!-- باستا menu items here -->
         <div class="menu-item">
     <img src="https://i.ibb.co/Wsyf9b8/15.jpg" alt="أفوكادو عسل">
     <p>أفوكادو عسل - 15 درهم</p>
@@ -417,6 +546,7 @@
     <img src="https://i.ibb.co/6tKTSJT/4.jpg" alt="ميرندا">
     <p>ميرندا - 4 دراهم</p>
 </div>
+
     </section>
 
 <section id="specialty-coffee" class="tab-content">
@@ -639,144 +769,98 @@
 
      </section>
 
-<section id="mohito" class="tab-content">
-        <h2>mohito</h2>
+<section id="Mojito" class="tab-content">
+        <h2>موهيتو</h2>
         <!-- mohito menu items here -->
 <div class="menu-item">
-    <img src="https://i.ibb.co/nbPTrdq/20.jpg" alt="Passion Fruit Mojito">
-    <p>Passion Fruit Mojito - 20 Dhs</p>
+    <img src="https://i.ibb.co/nbPTrdq/20.jpg" alt="موهيتو باشن فروت">
+    <p>موهيتو باشن فروت -20 درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/HhVMkVy/20.jpg" alt="Blueberry Mojito">
-    <p>Blueberry Mojito - 20 Dhs</p>
+    <img src="https://i.ibb.co/HhVMkVy/20.jpg" alt="موهيتو بلو بيري">
+    <p>موهيتو بلو بيري - 20 درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/g6F95Jt/20.jpg" alt="Sky Mojito">
-    <p>Sky Mojito - 20 Dhs</p>
+    <img src="https://i.ibb.co/g6F95Jt/20.jpg" alt="موهيتو سكاي">
+    <p>موهيتو سكاي - درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/TgcvpHh/20.jpg" alt="Strawberry Mojito">
-    <p>Strawberry Mojito - 20 Dhs</p>
+    <img src="https://i.ibb.co/TgcvpHh/20.jpg" alt="موهيتو فراولة">
+    <p>موهيتو فراولة - درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/b1cPm5Q/25.jpg" alt="Vitamin C Mojito">
-    <p>Vitamin C Mojito - 25 Dhs</p>
+    <img src="https://i.ibb.co/b1cPm5Q/25.jpg" alt="موهيتو فيتامين سي">
+    <p>موهيتو فيتامين سي - 20 درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/YRnnh6w/20.jpg" alt="Classic Mojito">
-    <p>Classic Mojito - 20 Dhs</p>
+    <img src="https://i.ibb.co/YRnnh6w/20.jpg" alt="موهيتو كلاسيك ">
+    <p>موهيتو كلاسيك  - 20 درهم</p>
 </div>
      </section>
 
 <section id="milkshake" class="tab-content">
-        <h2>milkshake</h2>
+        <h2>ميلك شيك</h2>
         <!-- milkshake menu items here -->
 <div class="menu-item">
-    <img src="https://i.ibb.co/2SgwQfR/25.jpg" alt="Rose Milkshake">
-    <p>Rose Milkshake - 25 Dhs</p>
+    <img src="https://i.ibb.co/2SgwQfR/25.jpg" alt="ميلك شيك روز ">
+    <p>ميلك شيك روز - 25 درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/Sv2wtwZ/25.jpg" alt="Saffron Milkshake">
-    <p>Saffron Milkshake - 25 Dhs</p>
+    <img src="https://i.ibb.co/Sv2wtwZ/25.jpg" alt="ميلك شيك زعفران">
+    <p>ميلك شيك زعفران - 25 درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/QXdw199/25.jpg" alt="Chocolate Milkshake">
-    <p>Chocolate Milkshake - 25 Dhs</p>
+    <img src="https://i.ibb.co/QXdw199/25.jpg" alt="ميلك شيك شوكولاتة">
+    <p>ميلك شيك شوكولاتة - 25 درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/1MdK2SD/25.jpg" alt="Strawberry Milkshake">
-    <p>Strawberry Milkshake - 25 Dhs</p>
+    <img src="https://i.ibb.co/1MdK2SD/25.jpg" alt="ميلك شيك فراولة">
+    <p>ميلك شيك فراولة - 25 درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/F7qRFz2/25.jpg" alt="Pistachio Milkshake">
-    <p>Pistachio Milkshake - 25 Dhs</p>
+    <img src="https://i.ibb.co/F7qRFz2/25.jpg" alt="ميلك شيك فستق">
+    <p>ميلك شيك فستق - 25 درهم</p>
 </div>
 
 <div class="menu-item">
-    <img src="https://i.ibb.co/XZyqkn2/25.jpg" alt="Coffee Milkshake">
-    <p>Coffee Milkshake - 25 Dhs</p>
-</div>
-      </section>
-
-<section id="main-courses" class="tab-content">
-        <h2>main-courses</h2>
-        <!-- main-courses menu items here -->
-<!-- Chicken Wings Salamander 15 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/Gn3RJ4W/15.jpg" alt="Chicken Wings Salamander">
-    <p>Chicken Wings Salamander - 15 Dhs</p>
-</div>
-
-<!-- Chicken Nuggets 18 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/f0hFXh2/18.jpg" alt="Chicken Nuggets">
-    <p>Chicken Nuggets - 18 Dhs</p>
-</div>
-
-<!-- Sausage 45 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/dkbVC0v/45.jpg" alt="Sausage">
-    <p>Sausage - 45 Dhs</p>
-</div>
-
-<!-- Salmon Steak 85 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/bQ4gxDY/85.jpg" alt="Salmon Steak">
-    <p>Salmon Steak - 85 Dhs</p>
-</div>
-
-<!-- Meat Araies 30 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/hR0gX1b/30.jpg" alt="Meat Araies">
-    <p>Meat Araies - 30 Dhs</p>
-</div>
-
-<!-- Chicken Fajita 35 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/417ppGR/35.jpg" alt="Chicken Fajita">
-    <p>Chicken Fajita - 35 Dhs</p>
-</div>
-
-<!-- Chicken Musahab 22 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/5kqQJJZ/22.jpg" alt="Chicken Musahab">
-    <p>Chicken Musahab - 22 Dhs</p>
-</div>
-
-<!-- Chicken Mazbi 20 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/9NXhg8M/20.jpg" alt="Chicken Mazbi">
-    <p>Chicken Mazbi - 20 Dhs</p>
-</div>
-
-<!-- Chicken Mandi 15 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/F06599L/15.jpg" alt="Chicken Mandi">
-    <p>Chicken Mandi - 15 Dhs</p>
+    <img src="https://i.ibb.co/XZyqkn2/25.jpg" alt="ميلك شيك قهوة">
+    <p>ميلك شيك قهوة - 25 درهم</p>
 </div>
       </section>
 
     <script>
-        function showTab(tabId) {
-            var tabs = document.querySelectorAll('.tab-content');
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active-tab');
-            }
-
-            var selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.classList.add('active-tab');
-            }
+        function toggleMenu(event) {
+            const menuItems = document.getElementById('menuItems');
+            menuItems.classList.toggle('active');
+            event.stopPropagation(); // Prevent the click event from reaching the body
         }
+
+        function showTab(tabId) {
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+
+            const selectedTab = document.getElementById(tabId);
+            selectedTab.classList.add('active-tab');
+        }
+
+        // Close the menu when clicking outside of it
+        document.body.addEventListener('click', function () {
+            const menuItems = document.getElementById('menuItems');
+            if (menuItems.classList.contains('active')) {
+                menuItems.classList.remove('active');
+            }
+        });
     </script>
 </body>
 

@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -159,6 +159,7 @@
    <nav class="menu">
         <div class="menu-toggle" onclick="toggleMenu(event)">☰ Menu</div>
         <div class="menu-items" id="menuItems">
+    <a href="#" onclick="showTab('main-courses')">Main Courses</a>
     <a href="#" onclick="showTab('pasta')">Pasta</a>
     <a href="#" onclick="showTab('burgers-fries')">Burgers and Fries</a>
     <a href="#" onclick="showTab('pizza')">Pizza</a>
@@ -171,10 +172,68 @@
     <a href="#" onclick="showTab('appetizers')">Appetizers</a>
     <a href="#" onclick="showTab('mohito')">Mohito</a>
     <a href="#" onclick="showTab('milkshake')">Milkshake</a>
-    <a href="#" onclick="showTab('main-courses')">Main Courses</a>
     <a href="home.html">Back to Home</a>
   </div>
 </nav>
+
+
+    <section id="main-courses" class="tab-content">
+        <h2>main-courses</h2>
+        <!-- main-courses menu items here -->
+<!-- Chicken Wings Salamander 15 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/Gn3RJ4W/15.jpg" alt="Chicken Wings Salamander">
+    <p>Chicken Wings Salamander - 15 Dhs</p>
+</div>
+
+<!-- Chicken Nuggets 18 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/f0hFXh2/18.jpg" alt="Chicken Nuggets">
+    <p>Chicken Nuggets - 18 Dhs</p>
+</div>
+
+<!-- Sausage 45 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/dkbVC0v/45.jpg" alt="Sausage">
+    <p>Sausage - 45 Dhs</p>
+</div>
+
+<!-- Salmon Steak 85 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/bQ4gxDY/85.jpg" alt="Salmon Steak">
+    <p>Salmon Steak - 85 Dhs</p>
+</div>
+
+<!-- Meat Araies 30 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/hR0gX1b/30.jpg" alt="Meat Araies">
+    <p>Meat Araies - 30 Dhs</p>
+</div>
+
+<!-- Chicken Fajita 35 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/417ppGR/35.jpg" alt="Chicken Fajita">
+    <p>Chicken Fajita - 35 Dhs</p>
+</div>
+
+<!-- Chicken Musahab 22 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/5kqQJJZ/22.jpg" alt="Chicken Musahab">
+    <p>Chicken Musahab - 22 Dhs</p>
+</div>
+
+<!-- Chicken Mazbi 20 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/9NXhg8M/20.jpg" alt="Chicken Mazbi">
+    <p>Chicken Mazbi - 20 Dhs</p>
+</div>
+
+<!-- Chicken Mandi 15 -->
+<div class="menu-item">
+    <img src="https://i.ibb.co/F06599L/15.jpg" alt="Chicken Mandi">
+    <p>Chicken Mandi - 15 Dhs</p>
+</div>
+      </section>
 
     <section id="pasta" class="tab-content active-tab">
         <h2>Pasta</h2>
@@ -770,63 +829,7 @@
 </div>
       </section>
 
-<section id="main-courses" class="tab-content">
-        <h2>main-courses</h2>
-        <!-- main-courses menu items here -->
-<!-- Chicken Wings Salamander 15 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/Gn3RJ4W/15.jpg" alt="Chicken Wings Salamander">
-    <p>Chicken Wings Salamander - 15 Dhs</p>
-</div>
 
-<!-- Chicken Nuggets 18 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/f0hFXh2/18.jpg" alt="Chicken Nuggets">
-    <p>Chicken Nuggets - 18 Dhs</p>
-</div>
-
-<!-- Sausage 45 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/dkbVC0v/45.jpg" alt="Sausage">
-    <p>Sausage - 45 Dhs</p>
-</div>
-
-<!-- Salmon Steak 85 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/bQ4gxDY/85.jpg" alt="Salmon Steak">
-    <p>Salmon Steak - 85 Dhs</p>
-</div>
-
-<!-- Meat Araies 30 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/hR0gX1b/30.jpg" alt="Meat Araies">
-    <p>Meat Araies - 30 Dhs</p>
-</div>
-
-<!-- Chicken Fajita 35 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/417ppGR/35.jpg" alt="Chicken Fajita">
-    <p>Chicken Fajita - 35 Dhs</p>
-</div>
-
-<!-- Chicken Musahab 22 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/5kqQJJZ/22.jpg" alt="Chicken Musahab">
-    <p>Chicken Musahab - 22 Dhs</p>
-</div>
-
-<!-- Chicken Mazbi 20 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/9NXhg8M/20.jpg" alt="Chicken Mazbi">
-    <p>Chicken Mazbi - 20 Dhs</p>
-</div>
-
-<!-- Chicken Mandi 15 -->
-<div class="menu-item">
-    <img src="https://i.ibb.co/F06599L/15.jpg" alt="Chicken Mandi">
-    <p>Chicken Mandi - 15 Dhs</p>
-</div>
-      </section>
 <script>
         function toggleMenu(event) {
             const menuItems = document.getElementById('menuItems');
