@@ -149,42 +149,13 @@
         .menu-items.active a {
             pointer-events: auto;
         }
-
-/* Header styles for Arabic text */
-.header-arabic {
-    background: linear-gradient(to right, #ff6f61, #ff9642, #ffc836, #cfff53, #5de8f6, #4a90e2, #686de0, #db4cbc, #ff6f61); /* Define the gradient colors */
-    background-size: 1800% 100%; /* Background size for the waving effect */
-    animation: waving 10s ease infinite; /* Animation for the waving effect */
-    text-align: center;
-    padding: 20px;
-}
-
-.header-text-arabic {
-    font-size: 2.5em;
-    color: #fff; /* Text color */
-    direction: rtl; /* Set text direction to right-to-left for Arabic */
-}
-
-/* Animation keyframes for waving effect */
-@keyframes waving {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
     </style>
 </head>
 
 <body>
-    <header class="header-arabic">
-    <h1 class="header-text-arabic">مطعم سلمندر</h1>
-</header>
+    <header>
+        <h1 style="font-size: 2.5em;">مطعم سلمندر</h1>
+    </header>
 
     <nav class="mobile-menu">
         <div class="menu-toggle" onclick="toggleMenu(event)">☰ القائمة</div>
