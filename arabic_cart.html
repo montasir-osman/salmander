@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salmander Restaurant - القائمة</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #eee;
+            padding: 15px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .active-tab {
+            display: block;
+        }
+
+        .menu-item {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 80%; /* Adjust the size as needed */
+            max-width: 300px; /* Set a maximum width */
+            margin: 10px auto; /* Center the items */
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #ff6f61;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive; /* Change to your preferred font-family */
+        }
+
+        @media only screen and (min-width: 600px) {
+            nav a {
+                font-size: 16px;
+            }
+
+            .menu-item {
+                width: 40%;
+            }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            background-color: #f8f8f8;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-toggle {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .menu-items {
+            display: none;
+            padding: 10px;
+        }
+
+        .menu-items a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-items.active {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Change from absolute to relative */
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    direction: rtl;  /* Set the text direction to right-to-left for Arabic */
+}
+
+
+        .menu-items.active a {
+            z-index: 1;
+        }
+
+        .menu-items.active a:hover {
+            background-color: #ddd; /* Optional: Change background color on hover */
+        }
+
+        /* Enable pointer events for menu items to ensure they are clickable */
+        .menu-items.active a {
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="font-size: 2.5em;">مطعم سلمندر</h1>
+    </header>
+
+    <nav class="mobile-menu">
+        <div class="menu-toggle" onclick="toggleMenu(event)">☰ القائمة</div>
+        <div class="menu-items" id="menuItems">
+            <a href="#" onclick="showTab('appetizers')">مقبلات</a>
+            <a href="#" onclick="showTab('main-courses')">وجبات رئيسية</a>
+            <a href="#" onclick="showTab('pasta')">باستا</a>
+            <a href="#" onclick="showTab('burgers-fries')">برجر وبطاطا</a>
+            <a href="#" onclick="showTab('pizza')">بيتزا</a>
+            <a href="#" onclick="showTab('toast')">توست</a>
+            <a href="#" onclick="showTab('shawarma-sandwiches')">شاورما وسندويشات</a>
+            <a href="#" onclick="showTab('specialty-coffee')">قهوة متخصصة</a>
+            <a href="#" onclick="showTab('hot-drinks')">مشروبات ساخنة</a>
+            <a href="#" onclick="showTab('Mojito')">موهيتو</a>
+            <a href="#" onclick="showTab('milkshake')">ميلك شيك</a>
+            <a href="#" onclick="showTab('juices')">عصائر ومشروبات غازية</a>
+            <a href="#" onclick="showTab('desserts')">حلويات</a>
+            <a href="#" onclick="showTab('knafa')">كنافة</a>
+            <a href="home.html">العودة إلى الصفحة الرئيسية</a>
+        </div>
+    </nav>
+<section id="main-courses" class="tab-content">
+        <h2>وجبات رئيسية</h2>
+        <!-- main-courses menu items here -->
+<!-- Chicken Wings Salamander 15 -->
+<div class="menu-item">
+<img src="tekalahm-min.jpg" alt="تكة لحم">
+    <p>تكة لحم - 52 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('تكةلحم')">➖</button>
+            <input id="تكةلحم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('تكةلحم')">➕</button>
+            <button onclick="addToCart('تكة لحم', 52)" style="margin-right:10px;">إضافة</button>
+            <div id="تكةلحم-price" data-price="52" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+<img src="reshlahm-min.jpg" alt="ريش لحم">
+    <p>ريش لحم - 70 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ريشلحم')">➖</button>
+            <input id="ريشلحم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ريشلحم')">➕</button>
+            <button onclick="addToCart('ريش لحم', 70)" style="margin-right:10px;">إضافة</button>
+            <div id="ريشلحم-price" data-price="70" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+<img src="sheshtawouk-min.jpg" alt="شيش طاووق">
+    <p>شيش طاووق - 42 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شيشطاووق')">➖</button>
+            <input id="شيشطاووق-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شيشطاووق')">➕</button>
+            <button onclick="addToCart('شيش طاووق', 42)" style="margin-right:10px;">إضافة</button>
+            <div id="شيشطاووق-price" data-price="42" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+<img src="kabablahm-min.jpg" alt="كباب لحم">
+    <p>كباب لحم - 40 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كبابلحم')">➖</button>
+            <input id="كبابلحم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كبابلحم')">➕</button>
+            <button onclick="addToCart('كباب لحم', 40)" style="margin-right:10px;">إضافة</button>
+            <div id="كبابلحم-price" data-price="40" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+<img src="kebdalahm-min.jpg" alt="كبدة لحم ">
+    <p>كبدة لحم  - 35 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كبدةلحم')">➖</button>
+            <input id="كبدةلحم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كبدةلحم')">➕</button>
+            <button onclick="addToCart('كبدة لحم', 35)" style="margin-right:10px;">إضافة</button>
+            <div id="كبدةلحم-price" data-price="35" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+<img src="mashawislamander-min.jpg" alt="مشاوي سلمندر">
+    <p>مشاوي سلمندر - 60 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('مشاويسلمندر')">➖</button>
+            <input id="مشاويسلمندر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('مشاويسلمندر')">➕</button>
+            <button onclick="addToCart('مشاوي سلمندر', 60)" style="margin-right:10px;">إضافة</button>
+            <div id="مشاويسلمندر-price" data-price="60" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+<img src="mashawimoshakal-min.jpg" alt="مشاوي مشكلة">
+    <p>مشاوي مشكلة - 47 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('مشاويمشكلة')">➖</button>
+            <input id="مشاويمشكلة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('مشاويمشكلة')">➕</button>
+            <button onclick="addToCart('مشاوي مشكلة', 47)" style="margin-right:10px;">إضافة</button>
+            <div id="مشاويمشكلة-price" data-price="47" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+<img src="mashawimoshakalkelo-min.jpg" alt="مشاوي مشكلة كيلو ">
+    <p>مشاوي مشكلة كيلو  - 150 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('مشاويمشكلةكيلو')">➖</button>
+            <input id="مشاويمشكلةكيلو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('مشاويمشكلةكيلو')">➕</button>
+            <button onclick="addToCart('مشاوي مشكلة كيلو', 150)" style="margin-right:10px;">إضافة</button>
+            <div id="مشاويمشكلةكيلو-price" data-price="150" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+    <img src="slamanderchikenwings.jpg" alt="أجنحة دجاج سلمندر">
+    <p>أجنحة دجاج سلمندر - 18 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('أجنحةدجاجسلمندر')">➖</button>
+            <input id="أجنحةدجاجسلمندر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('أجنحةدجاجسلمندر')">➕</button>
+            <button onclick="addToCart('أجنحة دجاج سلمندر', 18)" style="margin-right:10px;">إضافة</button>
+            <div id="أجنحةدجاجسلمندر-price" data-price="18" style="display:none;"></div>
+        </div>
+</div>
+
+<!-- Chicken Nuggets 18 -->
+<div class="menu-item">
+    <img src="chikennuggets.jpg" alt="دجاج ناجيتس">
+    <p>دجاج ناجيتس - 18 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('دجاجناجيتس')">➖</button>
+            <input id="دجاجناجيتس-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('دجاجناجيتس')">➕</button>
+            <button onclick="addToCart('دجاج ناجيتس', 18)" style="margin-right:10px;">إضافة</button>
+            <div id="دجاجناجيتس-price" data-price="18" style="display:none;"></div>
+        </div>
+</div>
+
+<!-- Sausage 45 -->
+<div class="menu-item">
+    <img src="sogog.jpg" alt="سجق">
+    <p>سجق - 50 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سجق')">➖</button>
+            <input id="سجق-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سجق')">➕</button>
+            <button onclick="addToCart('سجق', 50)" style="margin-right:10px;">إضافة</button>
+            <div id="سجق-price" data-price="50" style="display:none;"></div>
+        </div>
+</div>
+
+<!-- Salmon Steak 85 -->
+<div class="menu-item">
+    <img src="salmanderstick.jpg" alt="سلمندر ستيك">
+    <p>سلمندر ستيك - 85 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سلمندرستيك')">➖</button>
+            <input id="سلمندرستيك-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سلمندرستيك')">➕</button>
+            <button onclick="addToCart('سلمندر ستيك', 85)" style="margin-right:10px;">إضافة</button>
+            <div id="سلمندرستيك-price" data-price="85" style="display:none;"></div>
+        </div>
+</div>
+
+<!-- Meat Araies 30 -->
+<div class="menu-item">
+    <img src="lahamarais.jpg" alt="عرايس لحم">
+    <p>عرايس لحم - 30 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('عرايسلحم')">➖</button>
+            <input id="عرايسلحم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('عرايسلحم')">➕</button>
+            <button onclick="addToCart('عرايس لحم', 30)" style="margin-right:10px;">إضافة</button>
+            <div id="عرايسلحم-price" data-price="30" style="display:none;"></div>
+        </div>
+</div>
+
+<!-- Chicken Fajita 35 -->
+<div class="menu-item">
+    <img src="fahitachiken.jpg" alt="فاهيتا دجاج">
+    <p>فاهيتا دجاج - 35 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فاهيتادجاج')">➖</button>
+            <input id="فاهيتادجاج-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فاهيتادجاج')">➕</button>
+            <button onclick="addToCart('فاهيتا دجاج', 35)" style="margin-right:10px;">إضافة</button>
+            <div id="فاهيتادجاج-price" data-price="35" style="display:none;"></div>
+        </div>
+</div>
+
+<!-- Chicken Musahab 22 -->
+<div class="menu-item">
+    <img src="chikenmosahab.jpg" alt="مسحب دجاج">
+    <p>مسحب دجاج - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('مسحبدجاج')">➖</button>
+            <input id="مسحبدجاج-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('مسحبدجاج')">➕</button>
+            <button onclick="addToCart('مسحب دجاج', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="مسحبدجاج-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<!-- Chicken Mazbi 20 -->
+<div class="menu-item">
+    <img src="chikenmazbi.jpg" alt="مظبي دجاج">
+    <p>مظبي دجاج - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('مظبيدجاج')">➖</button>
+            <input id="مظبيدجاج-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('مظبيدجاج')">➕</button>
+            <button onclick="addToCart('مظبي دجاج', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="مظبيدجاج-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<!-- Chicken Mandi 15 -->
+<div class="menu-item">
+    <img src="chikenmandi.jpg" alt="مندي دجاج">
+    <p>مندي دجاج - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('منديدجاج')">➖</button>
+            <input id="منديدجاج-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('منديدجاج')">➕</button>
+            <button onclick="addToCart('مندي دجاج', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="منديدجاج-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+<img src="mashakeklahm-min.jpg" alt="مشاكيك لحم أو دجاج أو روبيان حسب الطلب">
+    <p>مشاكيك لحم أو دجاج أو روبيان حسب الطلب</p>
+</div>
+      </section>
+
+    <section id="pasta" class="tab-content">
+    <h2>باستا</h2>
+    <!-- باستا menu items here -->
+    <div class="menu-item">
+        <img src="alfredopasta.jpg" alt="باستا الفريدو">
+        <p>باستا الفريدو - 35 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('باستاالفريدو')">➖</button>
+            <input id="باستاالفريدو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('باستاالفريدو')">➕</button>
+            <button onclick="addToCart('باستا الفريدو', 35)" style="margin-right:10px;">إضافة</button>
+            <div id="باستاالفريدو-price" data-price="35" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="pinkpasta.jpg" alt="بينك باستا">
+        <p>بينك باستا - 35 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بينكباستا')">➖</button>
+            <input id="بينكباستا-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بينكباستا')">➕</button>
+            <button onclick="addToCart('بينك باستا', 35)" style="margin-right:10px;">إضافة</button>
+            <div id="بينكباستا-price" data-price="35" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="ropianpasta.jpg" alt="باستابالروبيان">
+        <p>باستا بالروبيان - 45 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('باستابالروبيان')">➖</button>
+            <input id="باستابالروبيان-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('باستابالروبيان')">➕</button>
+            <button onclick="addToCart('باستا بالروبيان', 45)" style="margin-right:10px;">إضافة</button>
+            <div id="باستابالروبيان-price" data-price="45" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="spagitipasta.jpg" alt="سباغيتي باللحم">
+        <p>سباغيتي باللحم - 35 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سباغيتيباللحم')">➖</button>
+            <input id="سباغيتيباللحم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سباغيتيباللحم')">➕</button>
+            <button onclick="addToCart('سباغيتي باللحم', 35)" style="margin-right:10px;">إضافة</button>
+            <div id="سباغيتيباللحم-price" data-price="35" style="display:none;"></div>
+        </div>
+</div>
+</section>
+
+<section id="burgers-fries" class="tab-content">
+    <h2>برغر وبطاطس</h2>
+    <!-- برغر وبطاطس menu items here -->
+    
+
+    <div class="menu-item">
+        <img src="classicchceckenburger.jpg" alt="برغر الدجاج الكلاسيكي">
+        <p>برغر الدجاج الكلاسيكي - 22 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('برغرالدجاجالكلاسيكي')">➖</button>
+            <input id="برغرالدجاجالكلاسيكي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('برغرالدجاجالكلاسيكي')">➕</button>
+            <button onclick="addToCart('برغر الدجاج الكلاسيكي', 22)" style="margin-right:10px;">إضافة</button>
+            <div id="برغرالدجاجالكلاسيكي-price" data-price="22" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="hotchickenburger.jpg" alt="برغر الدجاج الحار">
+        <p>برغر الدجاج الحار - 22 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('برغرالدجاجالحار')">➖</button>
+            <input id="برغرالدجاجالحار-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('برغرالدجاجالحار')">➕</button>
+            <button onclick="addToCart('برغر الدجاج الحار', 22)" style="margin-right:10px;">إضافة</button>
+            <div id="برغرالدجاجالحار-price" data-price="22" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="mushroombeefburger.jpg" alt="برغر لحم بالفطر">
+        <p>برغر لحم بالفطر - 30 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('برغرلحمبالفطر')">➖</button>
+            <input id="برغرلحمبالفطر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('برغرلحمبالفطر')">➕</button>
+            <button onclick="addToCart('برغر لحم بالفطر', 30)" style="margin-right:10px;">إضافة</button>
+            <div id="برغرلحمبالفطر-price" data-price="30" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="slamanaderburger.jpg" alt=" سلمندر برغر ">
+        <p>سلمندر برغر  - 45 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سلمندربرغر')">➖</button>
+            <input id="سلمندربرغر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سلمندربرغر')">➕</button>
+            <button onclick="addToCart('سلمندر برغر', 45)" style="margin-right:10px;">إضافة</button>
+            <div id="سلمندربرغر-price" data-price="45" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="classicbeefburger.jpg" alt="برغر لحم كلاسيكي">
+        <p>برغر لحم كلاسيكي - 25 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('برغرلحمكلاسيكي')">➖</button>
+            <input id="برغرلحمكلاسيكي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('برغرلحمكلاسيكي')">➕</button>
+            <button onclick="addToCart('برغر لحم كلاسيكي', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="برغرلحمكلاسيكي-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="patabljobn.jpg" alt="بطاطس دايناميت">
+        <p>بطاطس دايناميت - 15 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بطاطسدايناميت')">➖</button>
+            <input id="بطاطسدايناميت-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بطاطسدايناميت')">➕</button>
+            <button onclick="addToCart('بطاطس دايناميت', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="بطاطسدايناميت-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="patatadenamit.jpg" alt="بطاطس بالجبن">
+        <p>بطاطس بالجبن - 15 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بطاطسبالجبن')">➖</button>
+            <input id="بطاطسبالجبن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بطاطسبالجبن')">➕</button>
+            <button onclick="addToCart('بطاطس بالجبن', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="بطاطسبالجبن-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="firedpatata.jpg" alt="بطاطس مقلية">
+        <p>بطاطس مقلية - 9 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بطاطسمقلية')">➖</button>
+            <input id="بطاطسمقلية-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بطاطسمقلية')">➕</button>
+            <button onclick="addToCart('بطاطس مقلية', 9)" style="margin-right:10px;">إضافة</button>
+            <div id="بطاطسمقلية-price" data-price="9" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="patata,olagham.jpg" alt="بطاطس محشوة">
+        <p>بطاطس محشوة - 15 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بطاطسمحشوة')">➖</button>
+            <input id="بطاطسمحشوة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بطاطسمحشوة')">➕</button>
+            <button onclick="addToCart('بطاطس محشوة', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="بطاطسمحشوة-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+</section>
+
+<section id="pizza" class="tab-content">
+    <h2>بيتزا</h2>
+    <!-- بيتزا menu items here -->
+    <div class="menu-item">
+        <img src="pizzakhodar.jpg" alt="بيتزا خضار ">
+        <p>بيتزا خضار  - 28 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بيتزاخضار')">➖</button>
+            <input id="بيتزاخضار-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بيتزاخضار')">➕</button>
+            <button onclick="addToCart('بيتزا خضار', 28)" style="margin-right:10px;">إضافة</button>
+            <div id="بيتزاخضار-price" data-price="28" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="pizzachecken.jpg" alt="بيتزا دجاج ">
+        <p>بيتزا دجاج  - 30 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بيتزادجاج')">➖</button>
+            <input id="بيتزادجاج-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بيتزادجاج')">➕</button>
+            <button onclick="addToCart('بيتزا دجاج', 30)" style="margin-right:10px;">إضافة</button>
+            <div id="بيتزادجاج-price" data-price="30" style="display:none;"></div>
+        </div>
+</div>
+
+    <div class="menu-item">
+        <img src="pizzamargreta.jpg" alt="بيتزا مارغيريتا ">
+        <p>بيتزا مارغيريتا  - 25 درهم</p>
+    
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بيتزامارغيريتا')">➖</button>
+            <input id="بيتزامارغيريتا-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بيتزامارغيريتا')">➕</button>
+            <button onclick="addToCart('بيتزا مارغيريتا', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="بيتزامارغيريتا-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+</section>
+
+<section id="toast" class="tab-content">
+        <h2>توست</h2>
+        <!-- توست menu items here -->
+        <div class="menu-item">
+            <img src="toastpizzakhodar.jpg" alt="توست بيتزا خضار">
+            <p>توست بيتزا خضار - 12 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('توستبيتزاخضار')">➖</button>
+            <input id="توستبيتزاخضار-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('توستبيتزاخضار')">➕</button>
+            <button onclick="addToCart('توست بيتزا خضار', 12)" style="margin-right:10px;">إضافة</button>
+            <div id="توستبيتزاخضار-price" data-price="12" style="display:none;"></div>
+        </div>
+</div>
+
+        <div class="menu-item">
+            <img src="toastpizzachecken.jpg" alt="توست بيتزا دجاج">
+            <p>توست بيتزا دجاج - 12درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('توستبيتزادجاج')">➖</button>
+            <input id="توستبيتزادجاج-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('توستبيتزادجاج')">➕</button>
+            <button onclick="addToCart('توست بيتزا دجاج', 12)" style="margin-right:10px;">إضافة</button>
+            <div id="توستبيتزادجاج-price" data-price="12" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+            <img src="toastegg.jpg" alt="توست بيض">
+            <p>توست بيض - 10 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('توستبيض')">➖</button>
+            <input id="توستبيض-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('توستبيض')">➕</button>
+            <button onclick="addToCart('توست بيض', 10)" style="margin-right:10px;">إضافة</button>
+            <div id="توستبيض-price" data-price="10" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+            <img src="toastjebnzattar.jpg" alt="توست جبن وزعتر">
+            <p>توست جبن وزعتر- 10 درهم</p>
+        </div>
+
+<div class="menu-item">
+            <img src="toastcarftasal.jpg" alt="توست كرافت عسل">
+            <p>توست كرافت عسل - 10 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('توستكرافتعسل')">➖</button>
+            <input id="توستكرافتعسل-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('توستكرافتعسل')">➕</button>
+            <button onclick="addToCart('توست كرافت عسل', 10)" style="margin-right:10px;">إضافة</button>
+            <div id="توستكرافتعسل-price" data-price="10" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+            <img src="toastmargarita.jpg" alt="توست مارغيريتا">
+            <p>توست مارغيريتا - 10 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('توستمارغيريتا')">➖</button>
+            <input id="توستمارغيريتا-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('توستمارغيريتا')">➕</button>
+            <button onclick="addToCart('توست مارغيريتا', 10)" style="margin-right:10px;">إضافة</button>
+            <div id="توستمارغيريتا-price" data-price="10" style="display:none;"></div>
+        </div>
+</div>
+    </section>
+
+<section id="desserts" class="tab-content">
+        <h2>حلويات</h2>
+        <!-- حلويات menu items here -->
+        <div class="menu-item">
+            <img src="cheesecake.jpg" alt="تشيز كيك">
+            <p>تشيز كيك - 25 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('تشيزكيك')">➖</button>
+            <input id="تشيزكيك-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('تشيزكيك')">➕</button>
+            <button onclick="addToCart('تشيز كيك', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="تشيزكيك-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+        <div class="menu-item">
+            <img src="danizecookies.jpg" alt="دانيز كوكيز">
+            <p>دانيز كوكيز - 36 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('دانيزكوكيز')">➖</button>
+            <input id="دانيزكوكيز-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('دانيزكوكيز')">➕</button>
+            <button onclick="addToCart('دانيز كوكيز', 36)" style="margin-right:10px;">إضافة</button>
+            <div id="دانيزكوكيز-price" data-price="36" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+            <img src="cakesanspastian.jpg" alt="كيكة سان سباستيان">
+            <p>كيكة سان سباستيان - 25 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كيكةسانسباستيان')">➖</button>
+            <input id="كيكةسانسباستيان-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كيكةسانسباستيان')">➕</button>
+            <button onclick="addToCart('كيكة سان سباستيان', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="كيكةسانسباستيان-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+            <img src="salamandercake.jpg" alt="كيكة سلمندر">
+            <p>كيكة سلمندر  - 28 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كيكةسلمندر')">➖</button>
+            <input id="كيكةسلمندر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كيكةسلمندر')">➕</button>
+            <button onclick="addToCart('كيكة سلمندر', 28)" style="margin-right:10px;">إضافة</button>
+            <div id="كيكةسلمندر-price" data-price="28" style="display:none;"></div>
+        </div>
+</div>
+
+        <div class="menu-item">
+            <img src="choclatecake.jpg" alt="كيكة شوكولاتة">
+            <p>كيكة شوكولاتة  - 25 درهم</p>
+        
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كيكةشوكولاتة')">➖</button>
+            <input id="كيكةشوكولاتة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كيكةشوكولاتة')">➕</button>
+            <button onclick="addToCart('كيكة شوكولاتة', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="كيكةشوكولاتة-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="pansalamander.jpg" alt="بان كيك سلمندر">
+    <p>بان كيك سلمندر - 30 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بانكيكسلمندر')">➖</button>
+            <input id="بانكيكسلمندر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بانكيكسلمندر')">➕</button>
+            <button onclick="addToCart('بان كيك سلمندر', 30)" style="margin-right:10px;">إضافة</button>
+            <div id="بانكيكسلمندر-price" data-price="30" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="pannotella.jpg" alt="بان كيك نوتيلا">
+    <p>بان كيك نوتيلا - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بانكيكنوتيلا')">➖</button>
+            <input id="بانكيكنوتيلا-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بانكيكنوتيلا')">➕</button>
+            <button onclick="addToCart('بان كيك نوتيلا', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="بانكيكنوتيلا-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="oreoice.jpg" alt="كيكة أوريو ايس كريم">
+    <p>كيكة أوريو ايس كريم - 35 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كيكةأوريوايسكريم')">➖</button>
+            <input id="كيكةأوريوايسكريم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كيكةأوريوايسكريم')">➕</button>
+            <button onclick="addToCart('كيكة أوريو ايس كريم', 35)" style="margin-right:10px;">إضافة</button>
+            <div id="كيكةأوريوايسكريم-price" data-price="35" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="oreocheaseice.jpg" alt="كيكة اوريو تشيز ايس كريم">
+    <p>كيكة اوريو تشيز ايس كريم - 35 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كيكةاوريوتشيزايسكريم')">➖</button>
+            <input id="كيكةاوريوتشيزايسكريم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كيكةاوريوتشيزايسكريم')">➕</button>
+            <button onclick="addToCart('كيكة اوريو تشيز ايس كريم', 35)" style="margin-right:10px;">إضافة</button>
+            <div id="كيكةاوريوتشيزايسكريم-price" data-price="35" style="display:none;"></div>
+        </div>
+</div>
+    </section>
+
+<section id="shawarma-sandwiches" class="tab-content">
+        <h2>شاورما وسندويشات</h2>
+        <!-- شاورما وسندويشات menu items here -->
+        <div class="menu-item">
+            <img src="chickenrab.jpg" alt="دجاج راب">
+            <p>دجاج راب - 15</p>
+        </div>
+
+        <div class="menu-item">
+    <img src="halomisanwaish.jpg" alt="ساندويتش حلومي">
+    <p>ساندويتش حلومي - 16 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ساندويتشحلومي')">➖</button>
+            <input id="ساندويتشحلومي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ساندويتشحلومي')">➕</button>
+            <button onclick="addToCart('ساندويتش حلومي', 16)" style="margin-right:10px;">إضافة</button>
+            <div id="ساندويتشحلومي-price" data-price="16" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="kebdasandwish.jpg" alt="ساندويتش كبدة">
+    <p>ساندويتش كبدة - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ساندويتشكبدة')">➖</button>
+            <input id="ساندويتشكبدة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ساندويتشكبدة')">➕</button>
+            <button onclick="addToCart('ساندويتش كبدة', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="ساندويتشكبدة-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="shawarmaitalia.jpg" alt="شاورما إيطالية">
+    <p>شاورما إيطالية - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شاورماإيطالية')">➖</button>
+            <input id="شاورماإيطالية-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شاورماإيطالية')">➕</button>
+            <button onclick="addToCart('شاورما إيطالية', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="شاورماإيطالية-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="shawrmaarabichicken.jpg" alt="شاورما دجاج عربي">
+    <p>شاورما دجاج عربي - 16 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شاورمادجاجعربي')">➖</button>
+            <input id="شاورمادجاجعربي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شاورمادجاجعربي')">➕</button>
+            <button onclick="addToCart('شاورما دجاج عربي', 16)" style="margin-right:10px;">إضافة</button>
+            <div id="شاورمادجاجعربي-price" data-price="16" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="classicshawrma.jpg" alt="شاورما كلاسيكية">
+    <p>شاورما كلاسيكية - 8 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شاورماكلاسيكية')">➖</button>
+            <input id="شاورماكلاسيكية-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شاورماكلاسيكية')">➕</button>
+            <button onclick="addToCart('شاورما كلاسيكية', 8)" style="margin-right:10px;">إضافة</button>
+            <div id="شاورماكلاسيكية-price" data-price="8" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="shawrmamaksikia.jpg" alt="شاورما مكسيكية">
+    <p>شاورما مكسيكية - 8 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شاورمامكسيكية')">➖</button>
+            <input id="شاورمامكسيكية-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شاورمامكسيكية')">➕</button>
+            <button onclick="addToCart('شاورما مكسيكية', 8)" style="margin-right:10px;">إضافة</button>
+            <div id="شاورمامكسيكية-price" data-price="8" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="fahitachicken.jpg" alt="فاهيتا دجاج">
+    <p>فاهيتا دجاج - 22 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فاهيتادجاج')">➖</button>
+            <input id="فاهيتادجاج-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فاهيتادجاج')">➕</button>
+            <button onclick="addToCart('فاهيتا دجاج', 22)" style="margin-right:10px;">إضافة</button>
+            <div id="فاهيتادجاج-price" data-price="22" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="tekasan.jpg" alt="ساندويتس تكة">
+    <p>ساندويتس تكة - 18 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ساندويتستكة')">➖</button>
+            <input id="ساندويتستكة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ساندويتستكة')">➕</button>
+            <button onclick="addToCart('ساندويتس تكة', 18)" style="margin-right:10px;">إضافة</button>
+            <div id="ساندويتستكة-price" data-price="18" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="kababsan.jpg" alt="ساندويتش كباب">
+    <p>ساندويتش كباب - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ساندويتشكباب')">➖</button>
+            <input id="ساندويتشكباب-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ساندويتشكباب')">➕</button>
+            <button onclick="addToCart('ساندويتش كباب', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="ساندويتشكباب-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+</section>
+
+<section id="juices" class="tab-content">
+    <h2>عصائر ومشروبات غازية</h2>
+    <!-- عصائر menu items here -->
+        <div class="menu-item">
+    <img src="afocadoasal.jpg" alt="أفوكادو عسل">
+    <p>أفوكادو عسل - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('أفوكادوعسل')">➖</button>
+            <input id="أفوكادوعسل-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('أفوكادوعسل')">➕</button>
+            <button onclick="addToCart('أفوكادو عسل', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="أفوكادوعسل-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="orange.jpg" alt="برتقال">
+    <p>برتقال - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('برتقال')">➖</button>
+            <input id="برتقال-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('برتقال')">➕</button>
+            <button onclick="addToCart('برتقال', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="برتقال-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="ananasorange.jpg" alt="برتقال وأناناس">
+    <p>برتقال وأناناس - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('برتقالوأناناس')">➖</button>
+            <input id="برتقالوأناناس-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('برتقالوأناناس')">➕</button>
+            <button onclick="addToCart('برتقال وأناناس', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="برتقالوأناناس-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="jazarorange.jpg" alt="برتقال وجزر">
+    <p>برتقال وجزر - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('برتقالوجزر')">➖</button>
+            <input id="برتقالوجزر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('برتقالوجزر')">➕</button>
+            <button onclick="addToCart('برتقال وجزر', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="برتقالوجزر-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="batiekh.jpg" alt="بطيخ">
+    <p>بطيخ - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بطيخ')">➖</button>
+            <input id="بطيخ-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بطيخ')">➕</button>
+            <button onclick="addToCart('بطيخ', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="بطيخ-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+
+<div class="menu-item">
+    <img src="apple.jpg" alt="تفاح">
+    <p>تفاح - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('تفاح')">➖</button>
+            <input id="تفاح-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('تفاح')">➕</button>
+            <button onclick="addToCart('تفاح', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="تفاح-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="roman.jpg" alt="رمان">
+    <p>رمان - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('رمان')">➖</button>
+            <input id="رمان-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('رمان')">➕</button>
+            <button onclick="addToCart('رمان', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="رمان-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="romanwenger.jpg" alt="رمان وبنجر">
+    <p>رمان وبنجر - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('رمانوبنجر')">➖</button>
+            <input id="رمانوبنجر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('رمانوبنجر')">➕</button>
+            <button onclick="addToCart('رمان وبنجر', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="رمانوبنجر-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+
+<div class="menu-item">
+    <img src="slamaderspecial.jpg" alt="سلمندر سبيشال">
+    <p>سلمندر سبيشال - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سلمندرسبيشال')">➖</button>
+            <input id="سلمندرسبيشال-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سلمندرسبيشال')">➕</button>
+            <button onclick="addToCart('سلمندر سبيشال', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="سلمندرسبيشال-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+
+<div class="menu-item">
+    <img src="vemto.jpg" alt="فيمتو">
+    <p>فيمتو - 12 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فيمتو')">➖</button>
+            <input id="فيمتو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فيمتو')">➕</button>
+            <button onclick="addToCart('فيمتو', 12)" style="margin-right:10px;">إضافة</button>
+            <div id="فيمتو-price" data-price="12" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="coctail.jpg" alt="كوكتيل">
+    <p>كوكتيل - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كوكتيل')">➖</button>
+            <input id="كوكتيل-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كوكتيل')">➕</button>
+            <button onclick="addToCart('كوكتيل', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="كوكتيل-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="lemonicetea.jpg" alt="شاي ليمون مثلج">
+    <p>شاي ليمون مثلج - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شايليمونمثلج')">➖</button>
+            <input id="شايليمونمثلج-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شايليمونمثلج')">➕</button>
+            <button onclick="addToCart('شاي ليمون مثلج', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="شايليمونمثلج-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="lemonnanaa.jpg" alt="ليمون نعناع">
+    <p>ليمون نعناع - 12 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ليموننعناع')">➖</button>
+            <input id="ليموننعناع-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ليموننعناع')">➕</button>
+            <button onclick="addToCart('ليمون نعناع', 12)" style="margin-right:10px;">إضافة</button>
+            <div id="ليموننعناع-price" data-price="12" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="mango.jpg" alt="مانجو">
+    <p>مانجو - 12 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('مانجو')">➖</button>
+            <input id="مانجو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('مانجو')">➕</button>
+            <button onclick="addToCart('مانجو', 12)" style="margin-right:10px;">إضافة</button>
+            <div id="مانجو-price" data-price="12" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="mozhaleeb.jpg" alt="موز حليب">
+    <p>موز حليب - 12 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('موزحليب')">➖</button>
+            <input id="موزحليب-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('موزحليب')">➕</button>
+            <button onclick="addToCart('موز حليب', 12)" style="margin-right:10px;">إضافة</button>
+            <div id="موزحليب-price" data-price="12" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="karkadijuce.jpg" alt="كركديه">
+    <p>كركديه - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كركديه')">➖</button>
+            <input id="كركديه-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كركديه')">➕</button>
+            <button onclick="addToCart('كركديه', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="كركديه-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="pepsi.jpg" alt="بيبسي">
+    <p>بيبسي - 4 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بيبسي')">➖</button>
+            <input id="بيبسي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بيبسي')">➕</button>
+            <button onclick="addToCart('بيبسي', 4)" style="margin-right:10px;">إضافة</button>
+            <div id="بيبسي-price" data-price="4" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="pepsidiet.jpg" alt="دايت بيبسي">
+    <p>دايت بيبسي - 4 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('دايتبيبسي')">➖</button>
+            <input id="دايتبيبسي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('دايتبيبسي')">➕</button>
+            <button onclick="addToCart('دايت بيبسي', 4)" style="margin-right:10px;">إضافة</button>
+            <div id="دايتبيبسي-price" data-price="4" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="shani.jpg" alt="شاني">
+    <p>شاني - 4 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شاني')">➖</button>
+            <input id="شاني-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شاني')">➕</button>
+            <button onclick="addToCart('شاني', 4)" style="margin-right:10px;">إضافة</button>
+            <div id="شاني-price" data-price="4" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="sevenup.jpg" alt="سفن اب">
+    <p>سفن اب  - 4 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سفناب')">➖</button>
+            <input id="سفناب-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سفناب')">➕</button>
+            <button onclick="addToCart('سفن اب', 4)" style="margin-right:10px;">إضافة</button>
+            <div id="سفناب-price" data-price="4" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="miranda.jpg" alt="ميرندا">
+    <p>ميرندا - 4 دراهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="bigwater.jpg" alt="ماء كبير">
+    <p>ماء كبير - 5 دراهم</p>
+</div>
+    </section>
+
+<section id="specialty-coffee" class="tab-content">
+        <h2>قهوة متخصصة</h2>
+        <!-- قهوة متخصصة menu items here -->
+<div class="menu-item">
+    <img src="v60cold.jpg" alt="بارد V60">
+    <p>بارد V60 - 28 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('باردV60')">➖</button>
+            <input id="باردV60-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('باردV60')">➕</button>
+            <button onclick="addToCart('بارد V60', 28)" style="margin-right:10px;">إضافة</button>
+            <div id="باردV60-price" data-price="28" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="v60hot.jpg" alt="ساخن V60">
+    <p>ساخن V60 - 28 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ساخنV60')">➖</button>
+            <input id="ساخنV60-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ساخنV60')">➕</button>
+            <button onclick="addToCart('ساخن V60', 28)" style="margin-right:10px;">إضافة</button>
+            <div id="ساخنV60-price" data-price="28" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="spresso.jpg" alt="إسبريسو">
+    <p>إسبريسو - 18 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('إسبريسو')">➖</button>
+            <input id="إسبريسو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('إسبريسو')">➕</button>
+            <button onclick="addToCart('إسبريسو', 18)" style="margin-right:10px;">إضافة</button>
+            <div id="إسبريسو-price" data-price="18" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="doboulspresso.jpg" alt="دبل إسبريسو">
+    <p>دبل إسبريسو - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('دبلإسبريسو')">➖</button>
+            <input id="دبلإسبريسو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('دبلإسبريسو')">➕</button>
+            <button onclick="addToCart('دبل إسبريسو', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="دبلإسبريسو-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="coldamrecano.jpg" alt="أمريكانو بارد">
+    <p>أمريكانو بارد - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('أمريكانوبارد')">➖</button>
+            <input id="أمريكانوبارد-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('أمريكانوبارد')">➕</button>
+            <button onclick="addToCart('أمريكانو بارد', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="أمريكانوبارد-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="hotamrecano.jpg" alt="أمريكانو ساخن">
+    <p>أمريكانو ساخن - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('أمريكانوساخن')">➖</button>
+            <input id="أمريكانوساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('أمريكانوساخن')">➕</button>
+            <button onclick="addToCart('أمريكانو ساخن', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="أمريكانوساخن-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="pestachiolattecold.jpg" alt="بستاشو لاتيه بارد">
+    <p> بستاشو لاتيه بارد- 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="rozelattecold.jpg" alt="روز لاتيه بارد">
+    <p> روز لاتيه بارد - 28 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('روزلاتيهبارد')">➖</button>
+            <input id="روزلاتيهبارد-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('روزلاتيهبارد')">➕</button>
+            <button onclick="addToCart('روز لاتيه بارد', 28)" style="margin-right:10px;">إضافة</button>
+            <div id="روزلاتيهبارد-price" data-price="28" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="rozelattehot.jpg" alt="روز لاتيه ساخن">
+    <p> روز لاتيه ساخن - 28 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('روزلاتيهساخن')">➖</button>
+            <input id="روزلاتيهساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('روزلاتيهساخن')">➕</button>
+            <button onclick="addToCart('روز لاتيه ساخن', 28)" style="margin-right:10px;">إضافة</button>
+            <div id="روزلاتيهساخن-price" data-price="28" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="coldzafranlatte.jpg" alt="زعفران لاتيه بارد">
+    <p> زعفران لاتيه بارد- 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="zafranlattehot.jpg" alt="زعفران لاتيه ساخن">
+    <p> زعفران لاتيه ساخن- 28 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="spanishlattecold.jpg" alt="سبانيش لاتيه بارد">
+    <p> سبانيش لاتيه بارد - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سبانيشلاتيهبارد')">➖</button>
+            <input id="سبانيشلاتيهبارد-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سبانيشلاتيهبارد')">➕</button>
+            <button onclick="addToCart('سبانيش لاتيه بارد', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="سبانيشلاتيهبارد-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="spanishlattehot.jpg" alt="سبانيش لاتيه ساخن">
+    <p> سبانيش لاتيه ساخن- 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="italychoclatehot.jpg" alt="شوكولاتة إيطالية ساخن ">
+    <p>شوكولاتة إيطالية ساخن  - 21 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شوكولاتةإيطاليةساخن')">➖</button>
+            <input id="شوكولاتةإيطاليةساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شوكولاتةإيطاليةساخن')">➕</button>
+            <button onclick="addToCart('شوكولاتة إيطالية ساخن', 21)" style="margin-right:10px;">إضافة</button>
+            <div id="شوكولاتةإيطاليةساخن-price" data-price="21" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="flatwhitehot.jpg" alt="فلات وايت ساخن">
+    <p>فلات وايت ساخن - 23 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فلاتوايتساخن')">➖</button>
+            <input id="فلاتوايتساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فلاتوايتساخن')">➕</button>
+            <button onclick="addToCart('فلات وايت ساخن', 23)" style="margin-right:10px;">إضافة</button>
+            <div id="فلاتوايتساخن-price" data-price="23" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="turkishcoffe.jpg" alt="قهوة تركية">
+    <p>قهوة تركية - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('قهوةتركية')">➖</button>
+            <input id="قهوةتركية-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('قهوةتركية')">➕</button>
+            <button onclick="addToCart('قهوة تركية', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="قهوةتركية-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="arabiccoffe.jpg" alt="قهوة عربية">
+    <p>قهوة عربية - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('قهوةعربية')">➖</button>
+            <input id="قهوةعربية-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('قهوةعربية')">➕</button>
+            <button onclick="addToCart('قهوة عربية', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="قهوةعربية-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="cappchinohot.jpg" alt="كابتشينو ساخن">
+    <p>كابتشينو ساخن - 23 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كابتشينوساخن')">➖</button>
+            <input id="كابتشينوساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كابتشينوساخن')">➕</button>
+            <button onclick="addToCart('كابتشينو ساخن', 23)" style="margin-right:10px;">إضافة</button>
+            <div id="كابتشينوساخن-price" data-price="23" style="display:none;"></div>
+        </div>
+</div>
+
+
+<div class="menu-item">
+    <img src="cortatohot.jpg" alt="كورتادو ساخن">
+    <p>كورتادو ساخن- 22 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="coffelatte.jpg" alt="كوفي لاتيه">
+    <p>كوفي لاتيه - 23 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كوفيلاتيه')">➖</button>
+            <input id="كوفيلاتيه-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كوفيلاتيه')">➕</button>
+            <button onclick="addToCart('كوفي لاتيه', 23)" style="margin-right:10px;">إضافة</button>
+            <div id="كوفيلاتيه-price" data-price="23" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="coldbro.jpg" alt="كولد برو">
+    <p>كولد برو - 30 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كولدبرو')">➖</button>
+            <input id="كولدبرو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كولدبرو')">➕</button>
+            <button onclick="addToCart('كولد برو', 30)" style="margin-right:10px;">إضافة</button>
+            <div id="كولدبرو-price" data-price="30" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="coldmatsha.jpg" alt="ماتشا بارد">
+    <p>ماتشا بارد- 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="hotmatsha.jpg" alt="ماتشا ساخن">
+    <p>ماتشا ساخن - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ماتشاساخن')">➖</button>
+            <input id="ماتشاساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ماتشاساخن')">➕</button>
+            <button onclick="addToCart('ماتشا ساخن', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="ماتشاساخن-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="maciato.jpg" alt="ماكياتو">
+    <p>ماكياتو - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ماكياتو')">➖</button>
+            <input id="ماكياتو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ماكياتو')">➕</button>
+            <button onclick="addToCart('ماكياتو', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="ماكياتو-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="coldavocado.jpg" alt="افوكادو بارد">
+    <p>افوكادو بارد - 23 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('افوكادوبارد')">➖</button>
+            <input id="افوكادوبارد-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('افوكادوبارد')">➕</button>
+            <button onclick="addToCart('افوكادو بارد', 23)" style="margin-right:10px;">إضافة</button>
+            <div id="افوكادوبارد-price" data-price="23" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="icelattie.JPG" alt="آيس لاتيه">
+    <p>آيس لاتيه - 23 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('آيسلاتيه')">➖</button>
+            <input id="آيسلاتيه-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('آيسلاتيه')">➕</button>
+            <button onclick="addToCart('آيس لاتيه', 23)" style="margin-right:10px;">إضافة</button>
+            <div id="آيسلاتيه-price" data-price="23" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="coldicemocka.JPG" alt="آيس موكا بارد">
+    <p>آيس موكا بارد - 23 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('آيسموكابارد')">➖</button>
+            <input id="آيسموكابارد-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('آيسموكابارد')">➕</button>
+            <button onclick="addToCart('آيس موكا بارد', 23)" style="margin-right:10px;">إضافة</button>
+            <div id="آيسموكابارد-price" data-price="23" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="icewhitemocka.JPG" alt="آيس وايت موكا">
+    <p>آيس وايت موكا - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('آيسوايتموكا')">➖</button>
+            <input id="آيسوايتموكا-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('آيسوايتموكا')">➕</button>
+            <button onclick="addToCart('آيس وايت موكا', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="آيسوايتموكا-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="pestachiolattehot.jpg" alt="بستاشو لاتيه ساخن">
+    <p>بستاشو لاتيه ساخن - 28 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بستاشولاتيهساخن')">➖</button>
+            <input id="بستاشولاتيهساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بستاشولاتيهساخن')">➕</button>
+            <button onclick="addToCart('بستاشو لاتيه ساخن', 28)" style="margin-right:10px;">إضافة</button>
+            <div id="بستاشولاتيهساخن-price" data-price="28" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="pecolo.jpg" alt="بيكولو">
+    <p>بيكولو - 21 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بيكولو')">➖</button>
+            <input id="بيكولو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بيكولو')">➕</button>
+            <button onclick="addToCart('بيكولو', 21)" style="margin-right:10px;">إضافة</button>
+            <div id="بيكولو-price" data-price="21" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="spanishpecolo.jpg" alt="سبانيش بيكولو">
+    <p>سبانيش بيكولو - 23 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سبانيشبيكولو')">➖</button>
+            <input id="سبانيشبيكولو-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سبانيشبيكولو')">➕</button>
+            <button onclick="addToCart('سبانيش بيكولو', 23)" style="margin-right:10px;">إضافة</button>
+            <div id="سبانيشبيكولو-price" data-price="23" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="carmellattecold.jpg" alt="كارميل لاتيه بارد">
+    <p>كارميل لاتيه بارد - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كارميللاتيهبارد')">➖</button>
+            <input id="كارميللاتيهبارد-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كارميللاتيهبارد')">➕</button>
+            <button onclick="addToCart('كارميل لاتيه بارد', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="كارميللاتيهبارد-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="caramelelattehot.jpg" alt="كارميل لاتيه ساخن">
+    <p>كارميل لاتيه ساخن- 25 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="hotmoka.jpg" alt="موكا ساخن">
+    <p>موكا ساخن - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('موكاساخن')">➖</button>
+            <input id="موكاساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('موكاساخن')">➕</button>
+            <button onclick="addToCart('موكا ساخن', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="موكاساخن-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="mokapharpachino.jpg" alt="موكا فرابتشينو">
+    <p>موكا فرابتشينو- 30 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="hotwhitemoka.jpg" alt="وايت موكا ساخن">
+    <p>وايت موكا ساخن - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('وايتموكاساخن')">➖</button>
+            <input id="وايتموكاساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('وايتموكاساخن')">➕</button>
+            <button onclick="addToCart('وايت موكا ساخن', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="وايتموكاساخن-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+    </section>
+
+<section id="hot-drinks" class="tab-content">
+        <h2>مشروبات ساخنة</h2>
+        <!-- مشروبات ساخنة menu items here -->
+<div class="menu-item">
+    <img src="karak.jpg" alt="ابريق كرك">
+    <p>ابريق كرك - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ابريقكرك')">➖</button>
+            <input id="ابريقكرك-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ابريقكرك')">➕</button>
+            <button onclick="addToCart('ابريق كرك', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="ابريقكرك-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="zatar.jpg" alt="زعتر">
+    <p>زعتر - 12 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('زعتر')">➖</button>
+            <input id="زعتر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('زعتر')">➕</button>
+            <button onclick="addToCart('زعتر', 12)" style="margin-right:10px;">إضافة</button>
+            <div id="زعتر-price" data-price="12" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="zanjbillemon.jpg" alt="زنجبيل ليمون نعناع">
+    <p>زنجبيل ليمون نعناع - 5 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('زنجبيلليموننعناع')">➖</button>
+            <input id="زنجبيلليموننعناع-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('زنجبيلليموننعناع')">➕</button>
+            <button onclick="addToCart('زنجبيل ليمون نعناع', 5)" style="margin-right:10px;">إضافة</button>
+            <div id="زنجبيلليموننعناع-price" data-price="5" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="redtea.jpg" alt="شاي احمر">
+    <p>شاي احمر- 10 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="redteanuts.jpg" alt="شاي احمر مع مكسرات">
+    <p>شاي احمر مع مكسرات - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شاياحمرمعمكسرات')">➖</button>
+            <input id="شاياحمرمعمكسرات-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شاياحمرمعمكسرات')">➕</button>
+            <button onclick="addToCart('شاي احمر مع مكسرات', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="شاياحمرمعمكسرات-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="greentea.jpg" alt="شاي اخضر">
+    <p>شاي اخضر - 12 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شاياخضر')">➖</button>
+            <input id="شاياخضر-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شاياخضر')">➕</button>
+            <button onclick="addToCart('شاي اخضر', 12)" style="margin-right:10px;">إضافة</button>
+            <div id="شاياخضر-price" data-price="12" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="smallmoroco.jpg" alt="شاي مغربي صغير">
+    <p> شاي مغربي صغير- 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="middlemorroco.jpg" alt="شاي مغربي وسط">
+    <p> شاي مغربي وسط - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شايمغربيوسط')">➖</button>
+            <input id="شايمغربيوسط-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شايمغربيوسط')">➕</button>
+            <button onclick="addToCart('شاي مغربي وسط', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="شايمغربيوسط-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="karkadi.jpg" alt="كركديه ساخن">
+    <p> كركديه ساخن - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كركديهساخن')">➖</button>
+            <input id="كركديهساخن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كركديهساخن')">➕</button>
+            <button onclick="addToCart('كركديه ساخن', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="كركديهساخن-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+    </section>
+
+<section id="knafa" class="tab-content">
+        <h2>كنافة</h2>
+        <!-- كنافة menu items here -->
+<div class="menu-item">
+    <img src="konafajebn.jpg" alt="كنافة جبن">
+    <p>كنافة جبن - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كنافةجبن')">➖</button>
+            <input id="كنافةجبن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كنافةجبن')">➕</button>
+            <button onclick="addToCart('كنافة جبن', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="كنافةجبن-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="konafafstg.jpg" alt="كنافة فستق">
+    <p>كنافة فستق - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كنافةفستق')">➖</button>
+            <input id="كنافةفستق-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كنافةفستق')">➕</button>
+            <button onclick="addToCart('كنافة فستق', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="كنافةفستق-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="konafageshta.jpg" alt="كنافة قشطة">
+    <p>كنافة قشطة - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كنافةقشطة')">➖</button>
+            <input id="كنافةقشطة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كنافةقشطة')">➕</button>
+            <button onclick="addToCart('كنافة قشطة', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="كنافةقشطة-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="konafamoshakla.jpg" alt="كنافة مشكلة">
+    <p>كنافة مشكلة - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كنافةمشكلة')">➖</button>
+            <input id="كنافةمشكلة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كنافةمشكلة')">➕</button>
+            <button onclick="addToCart('كنافة مشكلة', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="كنافةمشكلة-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="konafanotila.jpg" alt="كنافة نوتيلا">
+    <p>كنافة نوتيلا - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كنافةنوتيلا')">➖</button>
+            <input id="كنافةنوتيلا-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كنافةنوتيلا')">➕</button>
+            <button onclick="addToCart('كنافة نوتيلا', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="كنافةنوتيلا-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+      </section>
+
+
+<section id="appetizers" class="tab-content active-tab">
+        <h2>مقبلات</h2>
+        <!-- مقبلات menu items here -->
+<div class="menu-item">
+    <img src="taboola.jpg" alt="تبولة">
+    <p>تبولة - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('تبولة')">➖</button>
+            <input id="تبولة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('تبولة')">➕</button>
+            <button onclick="addToCart('تبولة', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="تبولة-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="hommos.jpg" alt="حمص">
+    <p>حمص - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('حمص')">➖</button>
+            <input id="حمص-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('حمص')">➕</button>
+            <button onclick="addToCart('حمص', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="حمص-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="hommoslaham.jpg" alt="حمص مع لحم">
+    <p>حمص مع لحم - 30 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('حمصمعلحم')">➖</button>
+            <input id="حمصمعلحم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('حمصمعلحم')">➕</button>
+            <button onclick="addToCart('حمص مع لحم', 30)" style="margin-right:10px;">إضافة</button>
+            <div id="حمصمعلحم-price" data-price="30" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="hommosbairuti.jpg" alt="حمص بيروتي">
+    <p>حمص بيروتي - 17 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('حمصبيروتي')">➖</button>
+            <input id="حمصبيروتي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('حمصبيروتي')">➕</button>
+            <button onclick="addToCart('حمص بيروتي', 17)" style="margin-right:10px;">إضافة</button>
+            <div id="حمصبيروتي-price" data-price="17" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="jerjirslad.jpg" alt="سلطة جرجير">
+    <p>سلطة جرجير - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سلطةجرجير')">➖</button>
+            <input id="سلطةجرجير-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سلطةجرجير')">➕</button>
+            <button onclick="addToCart('سلطة جرجير', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="سلطةجرجير-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="arabicsalad.jpg" alt="سلطة عربية">
+    <p>سلطة عربية - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سلطةعربية')">➖</button>
+            <input id="سلطةعربية-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سلطةعربية')">➕</button>
+            <button onclick="addToCart('سلطة عربية', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="سلطةعربية-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="shorbatadas.jpg" alt="شوربة عدس">
+    <p>شوربة عدس - 8 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شوربةعدس')">➖</button>
+            <input id="شوربةعدس-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شوربةعدس')">➕</button>
+            <button onclick="addToCart('شوربة عدس', 8)" style="margin-right:10px;">إضافة</button>
+            <div id="شوربةعدس-price" data-price="8" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="shorbatfitir.jpg" alt="شوربة المشروم">
+    <p>شوربة المشروم - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شوربةالمشروم')">➖</button>
+            <input id="شوربةالمشروم-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شوربةالمشروم')">➕</button>
+            <button onclick="addToCart('شوربة المشروم', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="شوربةالمشروم-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="ftosh.jpg" alt="فتوش">
+    <p>فتوش - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فتوش')">➖</button>
+            <input id="فتوش-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فتوش')">➕</button>
+            <button onclick="addToCart('فتوش', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="فتوش-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="labnah.jpg" alt="لبنة">
+    <p>لبنة - 13 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('لبنة')">➖</button>
+            <input id="لبنة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('لبنة')">➕</button>
+            <button onclick="addToCart('لبنة', 13)" style="margin-right:10px;">إضافة</button>
+            <div id="لبنة-price" data-price="13" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="hotlabnah.jpg" alt="لبنة حارة">
+    <p>لبنة حارة - 15 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('لبنةحارة')">➖</button>
+            <input id="لبنةحارة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('لبنةحارة')">➕</button>
+            <button onclick="addToCart('لبنة حارة', 15)" style="margin-right:10px;">إضافة</button>
+            <div id="لبنةحارة-price" data-price="15" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="slamanderslad.jpg" alt="سلطة سلمندر">
+    <p>سلطة سلمندر- 30 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="motbl.jpg" alt="متبل">
+    <p>متبل- 15 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="moksarat.jpg" alt="مكسرات">
+    <p>مكسرات - 10 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('مكسرات')">➖</button>
+            <input id="مكسرات-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('مكسرات')">➕</button>
+            <button onclick="addToCart('مكسرات', 10)" style="margin-right:10px;">إضافة</button>
+            <div id="مكسرات-price" data-price="10" style="display:none;"></div>
+        </div>
+</div>
+     </section>
+
+<section id="Mojito" class="tab-content">
+        <h2>موهيتو</h2>
+        <!-- mohito menu items here -->
+<div class="menu-item">
+    <img src="pationfruit.jpg" alt=" باشن فروت">
+    <p>باشن فروت -20 درهم</p>
+</div>
+
+<div class="menu-item">
+    <img src="blueberry.jpg" alt=" بلو بيري">
+    <p> بلو بيري - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('بلوبيري')">➖</button>
+            <input id="بلوبيري-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('بلوبيري')">➕</button>
+            <button onclick="addToCart('بلو بيري', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="بلوبيري-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="sky.jpg" alt=" سكاي">
+    <p> سكاي - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('سكاي')">➖</button>
+            <input id="سكاي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('سكاي')">➕</button>
+            <button onclick="addToCart('سكاي', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="سكاي-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="farawla.jpg" alt=" فراولة">
+    <p> فراولة - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فراولة')">➖</button>
+            <input id="فراولة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فراولة')">➕</button>
+            <button onclick="addToCart('فراولة', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="فراولة-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="vitaminc.jpg" alt=" فيتامين سي">
+    <p> فيتامين سي - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فيتامينسي')">➖</button>
+            <input id="فيتامينسي-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فيتامينسي')">➕</button>
+            <button onclick="addToCart('فيتامين سي', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="فيتامينسي-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="classic.jpg" alt=" كلاسيك ">
+    <p>كلاسيك  - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('كلاسيك')">➖</button>
+            <input id="كلاسيك-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('كلاسيك')">➕</button>
+            <button onclick="addToCart('كلاسيك', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="كلاسيك-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="mangopation.jpg" alt="مانجو باشن ">
+    <p>مانجو باشن  - 20 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('مانجوباشن')">➖</button>
+            <input id="مانجوباشن-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('مانجوباشن')">➕</button>
+            <button onclick="addToCart('مانجو باشن', 20)" style="margin-right:10px;">إضافة</button>
+            <div id="مانجوباشن-price" data-price="20" style="display:none;"></div>
+        </div>
+</div>
+     </section>
+
+<section id="milkshake" class="tab-content">
+        <h2>ميلك شيك</h2>
+        <!-- milkshake menu items here -->
+<div class="menu-item">
+    <img src="rose.jpg" alt=" روز ">
+    <p> روز - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('روز')">➖</button>
+            <input id="روز-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('روز')">➕</button>
+            <button onclick="addToCart('روز', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="روز-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="zafran.jpg" alt=" زعفران">
+    <p> زعفران - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('زعفران')">➖</button>
+            <input id="زعفران-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('زعفران')">➕</button>
+            <button onclick="addToCart('زعفران', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="زعفران-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="shokolate.jpg" alt="شوكولاتة">
+    <p> شوكولاتة - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('شوكولاتة')">➖</button>
+            <input id="شوكولاتة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('شوكولاتة')">➕</button>
+            <button onclick="addToCart('شوكولاتة', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="شوكولاتة-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="frawla.jpg" alt=" فراولة">
+    <p> فراولة - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فراولة')">➖</button>
+            <input id="فراولة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فراولة')">➕</button>
+            <button onclick="addToCart('فراولة', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="فراولة-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="fostog.jpg" alt=" فستق">
+    <p> فستق - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('فستق')">➖</button>
+            <input id="فستق-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('فستق')">➕</button>
+            <button onclick="addToCart('فستق', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="فستق-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="qahwa.jpg" alt=" قهوة">
+    <p> قهوة - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('قهوة')">➖</button>
+            <input id="قهوة-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('قهوة')">➕</button>
+            <button onclick="addToCart('قهوة', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="قهوة-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+
+<div class="menu-item">
+    <img src="matsha.jpg" alt="ماتشا">
+    <p>ماتشا  - 25 درهم</p>
+
+        <div style="margin-top:10px;">
+            <button onclick="decrement('ماتشا')">➖</button>
+            <input id="ماتشا-qty" type="text" value="0" style="width:30px;text-align:center;" readonly>
+            <button onclick="increment('ماتشا')">➕</button>
+            <button onclick="addToCart('ماتشا', 25)" style="margin-right:10px;">إضافة</button>
+            <div id="ماتشا-price" data-price="25" style="display:none;"></div>
+        </div>
+</div>
+      </section>
+
+    <script>
+        function toggleMenu(event) {
+            const menuItems = document.getElementById('menuItems');
+            menuItems.classList.toggle('active');
+            event.stopPropagation(); // Prevent the click event from reaching the body
+        }
+
+        function showTab(tabId) {
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+
+            const selectedTab = document.getElementById(tabId);
+            selectedTab.classList.add('active-tab');
+        }
+
+        // Close the menu when clicking outside of it
+        document.body.addEventListener('click', function () {
+            const menuItems = document.getElementById('menuItems');
+            if (menuItems.classList.contains('active')) {
+                menuItems.classList.remove('active');
+            }
+        });
+    </script>
+
+<script>
+    const cart = {};
+
+    function addToCart(itemName, price) {
+        if (!cart[itemName]) {
+            cart[itemName] = { quantity: 1, price };
+        } else {
+            cart[itemName].quantity++;
+        }
+        updateCartButton();
+    }
+
+    function increment(itemName) {
+        if (!cart[itemName]) cart[itemName] = { quantity: 1, price: getPrice(itemName) };
+        else cart[itemName].quantity++;
+        document.getElementById(itemName + '-qty').value = cart[itemName].quantity;
+    }
+
+    function decrement(itemName) {
+        if (cart[itemName] && cart[itemName].quantity > 0) {
+            cart[itemName].quantity--;
+            document.getElementById(itemName + '-qty').value = cart[itemName].quantity;
+        }
+    }
+
+    function getPrice(itemName) {
+        const el = document.getElementById(itemName + '-price');
+        return el ? parseFloat(el.getAttribute('data-price')) : 0;
+    }
+
+    function updateCartButton() {
+        const totalItems = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('checkoutBtn').innerText = 'إتمام الطلب (' + totalItems + ')';
+    }
+
+    function checkout() {
+        let message = '🛒 طلب من مطعم سلمندر:%0A';
+        for (const [item, data] of Object.entries(cart)) {
+            if (data.quantity > 0)
+                message += `• ${item} x ${data.quantity} = ${data.price * data.quantity} Dhs%0A`;
+        }
+        const url = 'https://wa.me/971504106824?text=' + encodeURIComponent(message);
+        window.open(url, '_blank');
+    }
+</script>
+
+
+<div style="position:fixed;top:0;right:0;z-index:9999;background:#28a745;color:#fff;padding:10px 20px;cursor:pointer;border-radius:0 0 0 10px;" onclick="checkout()" id="checkoutBtn">
+    إتمام الطلب (0)
+</div>
+
+</body>
+
+</html>
