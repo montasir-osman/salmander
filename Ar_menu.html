@@ -1063,9 +1063,21 @@
 <h2>شاورما وسندويشات</h2>
 <!-- شاورما وسندويشات menu items here -->
 <div class="menu-item">
-<img alt="دجاج راب" loading="lazy" src="chickenrab.jpg"/>
-<p>دجاج راب - 15</p>
+  <img alt="دجاج راب" loading="lazy" src="chickenrab.jpg"/>
+  <p>دجاج راب - 15 درهم</p>
+  <div style="margin-top:10px;">
+    <div data-price="15" id="دجاجراب-price" style="display:none;"></div>
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+    <button onclick="decrement('دجاجراب')">-</button>
+    <input id="دجاجراب-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('دجاجراب')">+</button>
+    <button onclick="addToCart('دجاج راب', 15, 'دجاجراب')" style="margin-right:10px;">إضافة</button>
+  </div>
 </div>
+
 <div class="menu-item">
 <img alt="ساندويتش حلومي" loading="lazy" src="halomisanwaish.jpg"/>
 <p>ساندويتش حلومي - 18 درهم</p>
@@ -1506,13 +1518,37 @@
 </div>
 </div>
 <div class="menu-item">
-<img alt="ميرندا" loading="lazy" src="miranda.jpg"/>
-<p>ميرندا - 4 دراهم</p>
+  <img alt="ميرندا" loading="lazy" src="miranda.jpg"/>
+  <p>ميرندا - 4 دراهم</p>
+  <div style="margin-top:10px;">
+    <div data-price="4" id="ميرندا-price" style="display:none;"></div>
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+    <button onclick="decrement('ميرندا')">-</button>
+    <input id="ميرندا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('ميرندا')">+</button>
+    <button onclick="addToCart('ميرندا', 4, 'ميرندا')" style="margin-right:10px;">إضافة</button>
+  </div>
 </div>
+
 <div class="menu-item">
-<img alt="ماء كبير" loading="lazy" src="bigwater.jpg"/>
-<p>ماء كبير - 5 دراهم</p>
+  <img alt="ماء كبير" loading="lazy" src="bigwater.jpg"/>
+  <p>ماء كبير - 5 دراهم</p>
+  <div style="margin-top:10px;">
+    <div data-price="5" id="ماءكبير-price" style="display:none;"></div>
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+    <button onclick="decrement('ماءكبير')">-</button>
+    <input id="ماءكبير-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('ماءكبير')">+</button>
+    <button onclick="addToCart('ماء كبير', 5, 'ماءكبير')" style="margin-right:10px;">إضافة</button>
+  </div>
 </div>
+
 </section>
 <section class="tab-content" id="specialty-coffee">
 <h2>قهوة متخصصة</h2>

@@ -1918,9 +1918,17 @@
 </div>
 </div>
 <div class="menu-item">
-<img alt="Mutabbal (Eggplant Dip)" loading="lazy" src="motbl.jpg"/>
-<p>Mutabbal (Eggplant Dip) - 18 Dhs</p>
+  <img alt="Mutabbal (Eggplant Dip)" loading="lazy" src="motbl.jpg"/>
+  <p>Mutabbal (Eggplant Dip) - 18 Dhs</p>
+  <div style="margin-top:10px;">
+    <button onclick="decrement('Mutabbal')">➖</button>
+    <input id="Mutabbal-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('Mutabbal')">➕</button>
+    <button onclick="addToCart('Mutabbal (Eggplant Dip)', 18)" style="margin-left:10px;">Add</button>
+    <div data-price="18" id="Mutabbal-price" style="display:none;"></div>
+  </div>
 </div>
+
 <div class="menu-item">
 <img alt="Nuts" loading="lazy" src="moksarat.jpg"/>
 <p>Nuts - 15 Dhs</p>
