@@ -356,9 +356,17 @@
 </div>
 </div>
 <div class="menu-item">
-<img alt="Mixed Grills" loading="lazy" src="mashawimoshakal-min.jpg"/>
-<p>Mixed Grills - 55 Dhs</p>
+  <img alt="Mixed Grills" loading="lazy" src="mashawimoshakal-min.jpg"/>
+  <p>Mixed Grills - 55 Dhs</p>
+  <div style="margin-top:10px;">
+    <button onclick="decrement('MixedGrills')">➖</button>
+    <input id="MixedGrills-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('MixedGrills')">➕</button>
+    <button onclick="addToCart('Mixed Grills', 55)" style="margin-left:10px;">Add</button>
+    <div data-price="55" id="MixedGrills-price" style="display:none;"></div>
+  </div>
 </div>
+
 <div class="menu-item">
 <img alt="Mixed Grills (per kilo)" loading="lazy" src="mashawimoshakalkelo-min.jpg"/>
 <p>Mixed Grills (per kilo) - 150 Dhs</p>
@@ -372,7 +380,7 @@
 </div>
 <div class="menu-item">
 <img alt="Chicken Wings Salamander" loading="lazy" src="slamanderchikenwings.jpg"/>
-<p>Chicken Wings Salamander - 18 Dhs</p>
+<p>Chicken Wings Salamander - 20 Dhs</p>
 <div style="margin-top:10px;">
 <button onclick="decrement('ChickenWingsSalamander')">➖</button>
 <input id="ChickenWingsSalamander-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
@@ -432,7 +440,7 @@
 <!-- Chicken Fajita 35 -->
 <div class="menu-item">
 <img alt="Chicken Fajita" loading="lazy" src="fahitachiken.jpg"/>
-<p>Chicken Fajita - 26 Dhs</p>
+<p>Chicken Fajita - 45 Dhs</p>
 <div style="margin-top:10px;">
 <button onclick="decrement('ChickenFajita')">➖</button>
 <input id="ChickenFajita-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
@@ -478,9 +486,17 @@
 </div>
 </div>
 <div class="menu-item">
-<img alt="Skewers of meat, chicken, or shrimp as per order" loading="lazy" src="mashakeklahm-min.jpg"/>
-<p>Skewers of meat, chicken, or shrimp as per order - 50 Dhs</p>
+  <img alt="Skewers of meat, chicken, or shrimp as per order" loading="lazy" src="mashakeklahm-min.jpg"/>
+  <p>Skewers of meat, chicken, or shrimp as per order - 50 Dhs</p>
+  <div style="margin-top:10px;">
+    <button onclick="decrement('SkewersMix')">➖</button>
+    <input id="SkewersMix-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('SkewersMix')">➕</button>
+    <button onclick="addToCart('Skewers of meat, chicken, or shrimp as per order', 50)" style="margin-left:10px;">Add</button>
+    <div data-price="50" id="SkewersMix-price" style="display:none;"></div>
+  </div>
 </div>
+
 </section>
 <section class="tab-content" id="pasta">
 <h2>Pasta</h2>
@@ -519,9 +535,17 @@
 </div>
 </div>
 <div class="menu-item">
-<img alt="Spaghetti with Meat" loading="lazy" src="spagitipasta.jpg"/>
-<p>Spaghetti with Meat - 35 Dhs</p>
+  <img alt="Spaghetti with Meat" loading="lazy" src="spagitipasta.jpg"/>
+  <p>Spaghetti with Meat - 35 Dhs</p>
+  <div style="margin-top:10px;">
+    <button onclick="decrement('SpaghettiMeat')">➖</button>
+    <input id="SpaghettiMeat-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('SpaghettiMeat')">➕</button>
+    <button onclick="addToCart('Spaghetti with Meat', 35)" style="margin-left:10px;">Add</button>
+    <div data-price="35" id="SpaghettiMeat-price" style="display:none;"></div>
+  </div>
 </div>
+
 </section>
 <section class="tab-content" id="burgers-fries">
 <h2>Burgers and Fries</h2>
@@ -572,7 +596,7 @@
 </div>
 <div class="menu-item">
 <img alt="Classic Beef Burger" loading="lazy" src="classicbeefburger.jpg"/>
-<p>Classic Beef Burger - 32 Dhs</p>
+<p>Classic Beef Burger - 35 Dhs</p>
 <div style="margin-top:10px;">
 <button onclick="decrement('ClassicBeefBurger')">➖</button>
 <input id="ClassicBeefBurger-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
@@ -1468,7 +1492,7 @@
 </div>
 <div class="menu-item">
 <img alt="Cold Avocado" loading="lazy" src="coldavocado.jpg"/>
-<p>Cold Avocado - 23 Dhs</p>
+<p>Cold Affogato - 23 Dhs</p>
 <div style="margin-top:10px;">
 <button onclick="decrement('ColdAvocado')">➖</button>
 <input id="ColdAvocado-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
@@ -1555,17 +1579,41 @@
 </div>
 </div>
 <div class="menu-item">
-<img alt="Hot Caramel Latte" loading="lazy" src="caramelelattehot.jpg"/>
-<p>Hot Caramel Latte - 25 Dhs</p>
+  <img alt="Hot Caramel Latte" loading="lazy" src="caramelelattehot.jpg"/>
+  <p>Hot Caramel Latte - 25 Dhs</p>
+  <div style="margin-top:10px;">
+    <button onclick="decrement('HotCaramelLatte')">➖</button>
+    <input id="HotCaramelLatte-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('HotCaramelLatte')">➕</button>
+    <button onclick="addToCart('Hot Caramel Latte', 25)" style="margin-left:10px;">Add</button>
+    <div data-price="25" id="HotCaramelLatte-price" style="display:none;"></div>
+  </div>
 </div>
+
 <div class="menu-item">
-<img alt="Hot Mocha" loading="lazy" src="hotmoka.jpg"/>
-<p>Hot Mocha - 25 Dhs</p>
+  <img alt="Hot Mocha" loading="lazy" src="hotmoka.jpg"/>
+  <p>Hot Mocha - 25 Dhs</p>
+  <div style="margin-top:10px;">
+    <button onclick="decrement('HotMocha')">➖</button>
+    <input id="HotMocha-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('HotMocha')">➕</button>
+    <button onclick="addToCart('Hot Mocha', 25)" style="margin-left:10px;">Add</button>
+    <div data-price="25" id="HotMocha-price" style="display:none;"></div>
+  </div>
 </div>
+
 <div class="menu-item">
-<img alt="Mocha Frappuccino" loading="lazy" src="mokapharpachino.jpg"/>
-<p>Mocha Frappuccino - 30 Dhs</p>
+  <img alt="Mocha Frappuccino" loading="lazy" src="mokapharpachino.jpg"/>
+  <p>Mocha Frappuccino - 30 Dhs</p>
+  <div style="margin-top:10px;">
+    <button onclick="decrement('MochaFrappuccino')">➖</button>
+    <input id="MochaFrappuccino-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('MochaFrappuccino')">➕</button>
+    <button onclick="addToCart('Mocha Frappuccino', 30)" style="margin-left:10px;">Add</button>
+    <div data-price="30" id="MochaFrappuccino-price" style="display:none;"></div>
+  </div>
 </div>
+
 <div class="menu-item">
 <img alt="Hot White Mocha" loading="lazy" src="hotwhitemoka.jpg"/>
 <p>Hot White Mocha - 25 Dhs</p>
@@ -1605,7 +1653,7 @@
 </div>
 <div class="menu-item">
 <img alt="Ginger Lemon Mint" loading="lazy" src="zanjbillemon.jpg"/>
-<p>Ginger Lemon Mint - 8 Dhs</p>
+<p>Ginger Lemon Mint - 15 Dhs</p>
 <div style="margin-top:10px;">
 <button onclick="decrement('GingerLemonMint')">➖</button>
 <input id="GingerLemonMint-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
@@ -1627,7 +1675,7 @@
 </div>
 <div class="menu-item">
 <img alt="Red Tea with Nuts" loading="lazy" src="redteanuts.jpg"/>
-<p>Red Tea with Nuts - 20 Dhs</p>
+<p>Red Tea with Nuts - 30 Dhs</p>
 <div style="margin-top:10px;">
 <button onclick="decrement('RedTeawithNuts')">➖</button>
 <input id="RedTeawithNuts-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
@@ -1865,9 +1913,17 @@
 </div>
 </div>
 <div class="menu-item">
-<img alt="Salamander Salad" loading="lazy" src="slamanderslad.jpg"/>
-<p>Salamander Salad - 38 Dhs</p>
+  <img alt="Salamander Salad" loading="lazy" src="slamanderslad.jpg"/>
+  <p>Salamander Salad - 38 Dhs</p>
+  <div style="margin-top:10px;">
+    <button onclick="decrement('SalamanderSalad')">➖</button>
+    <input id="SalamanderSalad-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('SalamanderSalad')">➕</button>
+    <button onclick="addToCart('Salamander Salad', 38)" style="margin-left:10px;">Add</button>
+    <div data-price="38" id="SalamanderSalad-price" style="display:none;"></div>
+  </div>
 </div>
+
 <div class="menu-item">
 <img alt="Mutabbal (Eggplant Dip)" loading="lazy" src="motbl.jpg"/>
 <p>Mutabbal (Eggplant Dip) - 18 Dhs</p>
@@ -1922,7 +1978,7 @@
 </div>
 <div class="menu-item">
 <img alt="Strawberry " loading="lazy" src="farawla.jpg"/>
-<p>Strawberry - 25 Dhs</p>
+<p>Strawberry - 20 Dhs</p>
 <div style="margin-top:10px;">
 <button onclick="decrement('Strawberry')">➖</button>
 <input id="Strawberry-qty" readonly="" style="width:30px;text-align:center;" type="text" value="0"/>
