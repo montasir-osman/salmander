@@ -1,0 +1,3144 @@
+<!DOCTYPE html>
+
+<html lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salmander Restaurant - القائمة</title>
+<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #eee;
+            padding: 15px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .active-tab {
+            display: block;
+        }
+
+        .menu-item {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 80%; /* Adjust the size as needed */
+            max-width: 300px; /* Set a maximum width */
+            margin: 10px auto; /* Center the items */
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #ff6f61;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive; /* Change to your preferred font-family */
+        }
+
+        @media only screen and (min-width: 600px) {
+            nav a {
+                font-size: 16px;
+            }
+
+            .menu-item {
+                width: 40%;
+            }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            background-color: #f8f8f8;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-toggle {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .menu-items {
+            display: none;
+            padding: 10px;
+        }
+
+        .menu-items a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-items.active {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Change from absolute to relative */
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    direction: rtl;  /* Set the text direction to right-to-left for Arabic */
+}
+
+
+        .menu-items.active a {
+            z-index: 1;
+        }
+
+        .menu-items.active a:hover {
+            background-color: #ddd; /* Optional: Change background color on hover */
+        }
+
+        /* Enable pointer events for menu items to ensure they are clickable */
+        .menu-items.active a {
+            pointer-events: auto;
+        }
+    </style>
+<style>
+    body {
+        font-family: 'Cairo', sans-serif;
+        background: linear-gradient(to right, #2c3e50, #3498db);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+        font-size: 3em;
+        color: #FFD700;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+
+    nav {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    nav a {
+        margin: 10px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 8px 15px;
+        border: 1px solid #fff;
+        border-radius: 25px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        background: #FFD700;
+        color: #000;
+    }
+
+    .menu-item {
+        background: rgba(255, 255, 255, 0.1);
+        margin: 20px auto;
+        padding: 15px;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        max-width: 400px;
+        text-align: center;
+        transition: transform 0.4s ease;
+    }
+
+    .menu-item:hover {
+        transform: scale(1.05);
+    }
+
+    .menu-item img {
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        width: 100%;
+        height: auto;
+    }
+
+    .menu-item p {
+        font-size: 1.2em;
+        color: #FFD700;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    button {
+        background: #FFD700;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        padding: 6px 12px;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    button:hover {
+        background: #fff;
+        color: #000;
+    }
+
+    input[type="text"] {
+        width: 40px;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+        padding: 4px;
+    }
+
+    section {
+        padding: 30px 10px;
+    }
+
+    .tab-content h2 {
+        font-size: 2em;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+</style>
+<style>html { scroll-behavior: smooth; }</style>
+<!-- Luxurious Arabic Styling -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Cairo', sans-serif !important;
+        background: linear-gradient(135deg, #000000, #1a1a1a) !important;
+        color: #f2f2f2 !important;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+    }
+
+    header {
+        background: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    }
+
+    h1 {
+        font-family: 'Cairo', sans-serif !important;
+        color: #FFD700 !important;
+        font-size: 3em !important;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+
+    nav {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a {
+        color: #fff !important;
+        font-weight: 600 !important;
+        border: 1px solid transparent;
+        border-radius: 25px;
+        padding: 10px 20px;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: #FFD700 !important;
+        color: #000 !important;
+    }
+
+    .menu-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 20px;
+        margin: 20px auto;
+        box-shadow: 0 8px 24px rgba(255, 215, 0, 0.15);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        text-align: center;
+    }
+
+    .menu-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    }
+
+    .menu-item p {
+        font-size: 1.3em;
+        color: #FFD700;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .menu-item img {
+        border-radius: 15px;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .menu-item img:hover {
+        transform: scale(1.03);
+    }
+
+    button {
+        background-color: #FFD700;
+        color: #000;
+        border: none;
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-weight: bold;
+        margin: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+    input[type="text"] {
+        border-radius: 6px;
+        border: none;
+        width: 45px;
+        text-align: center;
+        padding: 4px;
+        background-color: #333;
+        color: #fff;
+    }
+
+    .tab-content h2 {
+        font-size: 2.2em;
+        color: #ffffff;
+        margin-bottom: 30px;
+        font-family: 'Cairo', sans-serif;
+        border-bottom: 2px solid #FFD700;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+</style>
+
+
+<style>
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,215,0,0.1) 0%, transparent 80%);
+    animation: pulseGlow 6s ease-in-out infinite;
+    z-index: -1;
+}
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+.menu-item {
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+.menu-item:hover {
+    border-color: #FFD700;
+}
+
+button {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+button:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+}
+
+nav a {
+    box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.3);
+}
+</style>
+
+
+<style>
+body {
+    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364) !important;
+    color: #e0e0e0 !important;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    animation: rotateBackground 80s linear infinite;
+}
+
+@keyframes rotateBackground {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.menu-item {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px auto;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.08);
+    max-width: 420px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(14px);
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5), inset 0 0 0 2px rgba(255,255,255,0.15);
+}
+
+.menu-item p {
+    font-size: 1.4em;
+    color: #c9f0ff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+.menu-item img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.menu-item img:hover {
+    transform: scale(1.02) rotate(1deg);
+}
+
+button {
+    background: linear-gradient(145deg, #1f4068, #2a5298);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(32,124,229,0.3);
+}
+
+button:hover {
+    background: #00c6ff;
+    color: #000;
+    box-shadow: 0 0 25px rgba(0,198,255,0.6);
+}
+
+input[type="text"] {
+    background: #111;
+    color: #fff;
+    border: 1px solid #2a5298;
+    border-radius: 6px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+}
+
+.tab-content h2 {
+    color: #ffffff;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #2a5298;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+</style>
+
+
+<style>
+.menu-toggle {
+    background-color: #FFD700 !important;
+    color: #000 !important;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.menu-items {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #1f1c2c, #928dab);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all 0.5s ease-in-out;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+.menu-items.active {
+    display: flex !important;
+}
+
+.menu-items a {
+    font-size: 2em;
+    padding: 20px;
+    color: #fff;
+    transition: 0.4s ease;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.menu-items a:hover {
+    color: #FFD700;
+    text-shadow: 0 0 15px #FFD700;
+}
+
+.menu-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2em;
+    color: #FFD700;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+</style>
+<script>
+function toggleMenu(event) {
+    event.preventDefault();
+    var menu = document.getElementById("menuItems");
+    if (menu.classList.contains("active")) {
+        menu.classList.remove("active");
+    } else {
+        menu.classList.add("active");
+    }
+}
+</script>
+
+</head>
+<body>
+<div style="position: fixed; top: 10px; left: 10px; z-index: 9999;">
+<button id="cart-count" onclick="proceedToWhatsApp()" style="background-color: #25D366; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">
+        إتمام الطلب (0)
+    </button>
+</div>
+<header>
+<h1 style="font-size: 2.5em;">مطعم سلمندر</h1>
+</header>
+<nav class="mobile-menu">
+<div class="menu-toggle" onclick="toggleMenu(event)">☰ القائمة</div>
+<div class="menu-items" id="menuItems"><button class="menu-close" onclick="toggleMenu(event)">×</button>
+<a href="#" onclick="showTab('appetizers')">مقبلات</a>
+<a href="#" onclick="showTab('main-courses')">وجبات رئيسية</a>
+<a href="#" onclick="showTab('pasta')">باستا</a>
+<a href="#" onclick="showTab('burgers-fries')">برجر وبطاطا</a>
+<a href="#" onclick="showTab('pizza')">بيتزا</a>
+<a href="#" onclick="showTab('toast')">توست</a>
+<a href="#" onclick="showTab('shawarma-sandwiches')">شاورما وسندويشات</a>
+<a href="#" onclick="showTab('specialty-coffee')">قهوة متخصصة</a>
+<a href="#" onclick="showTab('hot-drinks')">مشروبات ساخنة</a>
+<a href="#" onclick="showTab('Mojito')">موهيتو</a>
+<a href="#" onclick="showTab('milkshake')">ميلك شيك</a>
+<a href="#" onclick="showTab('juices')">عصائر ومشروبات غازية</a>
+<a href="#" onclick="showTab('desserts')">حلويات</a>
+<a href="#" onclick="showTab('knafa')">كنافة</a>
+<a href="home.html">العودة إلى الصفحة الرئيسية</a>
+</div>
+</nav>
+<section class="tab-content" id="main-courses">
+<h2>وجبات رئيسية</h2>
+<!-- main-courses menu items here -->
+<!-- Chicken Wings Salamander 15 -->
+<div class="menu-item">
+<img alt="تكة لحم" loading="lazy" src="tekalahm-min.jpg"/>
+<p>تكة لحم - 60 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="60" id="تكةلحم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('تكةلحم')">-</button>
+<input id="تكةلحم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('تكةلحم')">+</button>
+<button onclick="addToCart('تكة لحم', 60, 'تكةلحم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ريش لحم" loading="lazy" src="reshlahm-min.jpg"/>
+<p>ريش لحم - 75 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="75" id="ريشلحم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ريشلحم')">-</button>
+<input id="ريشلحم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ريشلحم')">+</button>
+<button onclick="addToCart('ريش لحم', 75, 'ريشلحم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شيش طاووق" loading="lazy" src="sheshtawouk-min.jpg"/>
+<p>شيش طاووق - 47 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="47" id="شيشطاووق-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شيشطاووق')">-</button>
+<input id="شيشطاووق-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شيشطاووق')">+</button>
+<button onclick="addToCart('شيش طاووق', 47, 'شيشطاووق')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كباب لحم" loading="lazy" src="kabablahm-min.jpg"/>
+<p>كباب لحم - 45 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="45" id="كبابلحم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كبابلحم')">-</button>
+<input id="كبابلحم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كبابلحم')">+</button>
+<button onclick="addToCart('كباب لحم', 45, 'كبابلحم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كبدة لحم " loading="lazy" src="kebdalahm-min.jpg"/>
+<p>كبدة لحم - 40 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="40" id="كبدةلحم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كبدةلحم')">-</button>
+<input id="كبدةلحم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كبدةلحم')">+</button>
+<button onclick="addToCart('كبدة لحم', 40, 'كبدةلحم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="مشاوي سلمندر" loading="lazy" src="mashawislamander-min.jpg"/>
+<p>مشاوي سلمندر - 65 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="65" id="مشاويسلمندر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('مشاويسلمندر')">-</button>
+<input id="مشاويسلمندر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('مشاويسلمندر')">+</button>
+<button onclick="addToCart('مشاوي سلمندر', 65, 'مشاويسلمندر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="مشاوي مشكلة" loading="lazy" src="mashawimoshakal-min.jpg"/>
+<p>مشاوي مشكلة - 55 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="55" id="مشاويمشكلة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('مشاويمشكلة')">-</button>
+<input id="مشاويمشكلة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('مشاويمشكلة')">+</button>
+<button onclick="addToCart('مشاوي مشكلة', 55, 'مشاويمشكلة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="مشاوي مشكلة كيلو " loading="lazy" src="mashawimoshakalkelo-min.jpg"/>
+<p>مشاوي مشكلة كيلو - 150 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="150" id="مشاويمشكلةكيلو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('مشاويمشكلةكيلو')">-</button>
+<input id="مشاويمشكلةكيلو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('مشاويمشكلةكيلو')">+</button>
+<button onclick="addToCart('مشاوي مشكلة كيلو', 150, 'مشاويمشكلةكيلو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="أجنحة دجاج سلمندر" loading="lazy" src="slamanderchikenwings.jpg"/>
+<p>أجنحة دجاج سلمندر - 18 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="18" id="أجنحةدجاجسلمندر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('أجنحةدجاجسلمندر')">-</button>
+<input id="أجنحةدجاجسلمندر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('أجنحةدجاجسلمندر')">+</button>
+<button onclick="addToCart('أجنحة دجاج سلمندر', 18, 'أجنحةدجاجسلمندر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<!-- Chicken Nuggets 18 -->
+<div class="menu-item">
+<img alt="دجاج ناجيتس" loading="lazy" src="chikennuggets.jpg"/>
+<p>دجاج ناجيتس - 22 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="22" id="دجاجناجيتس-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('دجاجناجيتس')">-</button>
+<input id="دجاجناجيتس-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('دجاجناجيتس')">+</button>
+<button onclick="addToCart('دجاج ناجيتس', 22, 'دجاجناجيتس')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<!-- Sausage 45 -->
+<div class="menu-item">
+<img alt="سجق" loading="lazy" src="sogog.jpg"/>
+<p>سجق - 50 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="50" id="سجق-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سجق')">-</button>
+<input id="سجق-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سجق')">+</button>
+<button onclick="addToCart('سجق', 50, 'سجق')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<!-- Salmon Steak 85 -->
+<div class="menu-item">
+<img alt="سلمندر ستيك" loading="lazy" src="salmanderstick.jpg"/>
+<p>سلمندر ستيك - 85 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="85" id="سلمندرستيك-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سلمندرستيك')">-</button>
+<input id="سلمندرستيك-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سلمندرستيك')">+</button>
+<button onclick="addToCart('سلمندر ستيك', 85, 'سلمندرستيك')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<!-- Meat Araies 30 -->
+<div class="menu-item">
+<img alt="عرايس لحم" loading="lazy" src="lahamarais.jpg"/>
+<p>عرايس لحم - 35 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="35" id="عرايسلحم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('عرايسلحم')">-</button>
+<input id="عرايسلحم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('عرايسلحم')">+</button>
+<button onclick="addToCart('عرايس لحم', 35, 'عرايسلحم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<!-- Chicken Fajita 35 -->
+<div class="menu-item">
+<img alt="فاهيتا دجاج" loading="lazy" src="fahitachiken.jpg"/>
+<p>فاهيتا دجاج - 45 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="45" id="فاهيتادجاج-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فاهيتادجاج')">-</button>
+<input id="فاهيتادجاج-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فاهيتادجاج')">+</button>
+<button onclick="addToCart('فاهيتا دجاج', 45, 'فاهيتادجاج')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<!-- Chicken Musahab 22 -->
+<div class="menu-item">
+<img alt="مسحب دجاج" loading="lazy" src="chikenmosahab.jpg"/>
+<p>مسحب دجاج - 35 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="35" id="مسحبدجاج-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('مسحبدجاج')">-</button>
+<input id="مسحبدجاج-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('مسحبدجاج')">+</button>
+<button onclick="addToCart('مسحب دجاج', 35, 'مسحبدجاج')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<!-- Chicken Mazbi 20 -->
+<div class="menu-item">
+<img alt="مظبي دجاج" loading="lazy" src="chikenmazbi.jpg"/>
+<p>مظبي دجاج - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="مظبيدجاج-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('مظبيدجاج')">-</button>
+<input id="مظبيدجاج-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('مظبيدجاج')">+</button>
+<button onclick="addToCart('مظبي دجاج', 20, 'مظبيدجاج')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<!-- Chicken Mandi 15 -->
+<div class="menu-item">
+<img alt="مندي دجاج" loading="lazy" src="chikenmandi.jpg"/>
+<p>مندي دجاج - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="منديدجاج-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('منديدجاج')">-</button>
+<input id="منديدجاج-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('منديدجاج')">+</button>
+<button onclick="addToCart('مندي دجاج', 15, 'منديدجاج')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+  <img alt="مشاكيك لحم أو دجاج أو روبيان حسب الطلب" loading="lazy" src="mashakeklahm-min.jpg"/>
+  <p>مشاكيك لحم أو دجاج أو روبيان حسب الطلب  </p>
+
+  <!-- السعر كـ data attribute -->
+  <div style="margin-top:10px;">
+    <div data-price="50" id="Mashakeek-price" style="display:none;"></div>
+  </div>
+
+  <!-- عناصر التحكم بالكمية -->
+  <div class="quantity-controls" style="margin-top:10px;">
+    <button onclick="decrement('Mashakeek')">-</button>
+    <input id="Mashakeek-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('Mashakeek')">+</button>
+    <button onclick="addToCart('مشاكيك لحم أو دجاج أو روبيان حسب الطلب', 50, 'Mashakeek')" style="margin-right:10px;">إضافة</button>
+  </div>
+</div>
+
+</section>
+<section class="tab-content" id="pasta">
+<h2>باستا</h2>
+<!-- باستا menu items here -->
+<div class="menu-item">
+<img alt="باستا الفريدو" loading="lazy" src="alfredopasta.jpg"/>
+<p>باستا الفريدو - 35 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="35" id="باستاالفريدو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('باستاالفريدو')">-</button>
+<input id="باستاالفريدو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('باستاالفريدو')">+</button>
+<button onclick="addToCart('باستا الفريدو', 35, 'باستاالفريدو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بينك باستا" loading="lazy" src="pinkpasta.jpg"/>
+<p>بينك باستا - 35 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="35" id="بينكباستا-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بينكباستا')">-</button>
+<input id="بينكباستا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بينكباستا')">+</button>
+<button onclick="addToCart('بينك باستا', 35, 'بينكباستا')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="باستابالروبيان" loading="lazy" src="ropianpasta.jpg"/>
+<p>باستا بالروبيان - 45 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="45" id="باستابالروبيان-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('باستابالروبيان')">-</button>
+<input id="باستابالروبيان-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('باستابالروبيان')">+</button>
+<button onclick="addToCart('باستا بالروبيان', 45, 'باستابالروبيان')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سباغيتي باللحم" loading="lazy" src="spagitipasta.jpg"/>
+<p>سباغيتي باللحم - 35 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="35" id="سباغيتيباللحم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سباغيتيباللحم')">-</button>
+<input id="سباغيتيباللحم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سباغيتيباللحم')">+</button>
+<button onclick="addToCart('سباغيتي باللحم', 35, 'سباغيتيباللحم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="burgers-fries">
+<h2>برغر وبطاطس</h2>
+<!-- برغر وبطاطس menu items here -->
+<div class="menu-item">
+<img alt="برغر الدجاج الكلاسيكي" loading="lazy" src="classicchceckenburger.jpg"/>
+<p>برغر الدجاج الكلاسيكي - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="28" id="برغرالدجاجالكلاسيكي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('برغرالدجاجالكلاسيكي')">-</button>
+<input id="برغرالدجاجالكلاسيكي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('برغرالدجاجالكلاسيكي')">+</button>
+<button onclick="addToCart('برغر الدجاج الكلاسيكي', 28, 'برغرالدجاجالكلاسيكي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="برغر الدجاج الحار" loading="lazy" src="hotchickenburger.jpg"/>
+<p>برغر الدجاج الحار - 30 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="30" id="برغرالدجاجالحار-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('برغرالدجاجالحار')">-</button>
+<input id="برغرالدجاجالحار-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('برغرالدجاجالحار')">+</button>
+<button onclick="addToCart('برغر الدجاج الحار', 30, 'برغرالدجاجالحار')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="برغر لحم بالفطر" loading="lazy" src="mushroombeefburger.jpg"/>
+<p>برغر لحم بالفطر - 37 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="37" id="برغرلحمبالفطر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('برغرلحمبالفطر')">-</button>
+<input id="برغرلحمبالفطر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('برغرلحمبالفطر')">+</button>
+<button onclick="addToCart('برغر لحم بالفطر', 37, 'برغرلحمبالفطر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" سلمندر برغر " loading="lazy" src="slamanaderburger.jpg"/>
+<p>سلمندر برغر - 45 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="45" id="سلمندربرغر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سلمندربرغر')">-</button>
+<input id="سلمندربرغر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سلمندربرغر')">+</button>
+<button onclick="addToCart('سلمندر برغر', 45, 'سلمندربرغر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="برغر لحم كلاسيكي" loading="lazy" src="classicbeefburger.jpg"/>
+<p>برغر لحم كلاسيكي - 35 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="35" id="برغرلحمكلاسيكي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('برغرلحمكلاسيكي')">-</button>
+<input id="برغرلحمكلاسيكي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('برغرلحمكلاسيكي')">+</button>
+<button onclick="addToCart('برغر لحم كلاسيكي', 35, 'برغرلحمكلاسيكي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بطاطس دايناميت" loading="lazy" src="patabljobn.jpg"/>
+<p>بطاطس دايناميت - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="بطاطسدايناميت-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بطاطسدايناميت')">-</button>
+<input id="بطاطسدايناميت-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بطاطسدايناميت')">+</button>
+<button onclick="addToCart('بطاطس دايناميت', 20, 'بطاطسدايناميت')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بطاطس بالجبن" loading="lazy" src="patatadenamit.jpg"/>
+<p>بطاطس بالجبن - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="بطاطسبالجبن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بطاطسبالجبن')">-</button>
+<input id="بطاطسبالجبن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بطاطسبالجبن')">+</button>
+<button onclick="addToCart('بطاطس بالجبن', 20, 'بطاطسبالجبن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بطاطس مقلية" loading="lazy" src="firedpatata.jpg"/>
+<p>بطاطس مقلية - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="بطاطسمقلية-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بطاطسمقلية')">-</button>
+<input id="بطاطسمقلية-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بطاطسمقلية')">+</button>
+<button onclick="addToCart('بطاطس مقلية', 15, 'بطاطسمقلية')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بطاطس محشوة" loading="lazy" src="patata,olagham.jpg"/>
+<p>بطاطس محشوة - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="بطاطسمحشوة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بطاطسمحشوة')">-</button>
+<input id="بطاطسمحشوة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بطاطسمحشوة')">+</button>
+<button onclick="addToCart('بطاطس محشوة', 20, 'بطاطسمحشوة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="pizza">
+<h2>بيتزا</h2>
+<!-- بيتزا menu items here -->
+<div class="menu-item">
+<img alt="بيتزا خضار " loading="lazy" src="pizzakhodar.jpg"/>
+<p>بيتزا خضار - 33 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="33" id="بيتزاخضار-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بيتزاخضار')">-</button>
+<input id="بيتزاخضار-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بيتزاخضار')">+</button>
+<button onclick="addToCart('بيتزا خضار', 33, 'بيتزاخضار')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بيتزا دجاج " loading="lazy" src="pizzachecken.jpg"/>
+<p>بيتزا دجاج - 37 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="37" id="بيتزادجاج-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بيتزادجاج')">-</button>
+<input id="بيتزادجاج-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بيتزادجاج')">+</button>
+<button onclick="addToCart('بيتزا دجاج', 37, 'بيتزادجاج')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بيتزا مارغيريتا " loading="lazy" src="pizzamargreta.jpg"/>
+<p>بيتزا مارغيريتا - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="28" id="بيتزامارغيريتا-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بيتزامارغيريتا')">-</button>
+<input id="بيتزامارغيريتا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بيتزامارغيريتا')">+</button>
+<button onclick="addToCart('بيتزا مارغيريتا', 28, 'بيتزامارغيريتا')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="toast">
+<h2>توست</h2>
+<!-- توست menu items here -->
+<div class="menu-item">
+<img alt="توست بيتزا خضار" loading="lazy" src="toastpizzakhodar.jpg"/>
+<p>توست بيتزا خضار - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="توستبيتزاخضار-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('توستبيتزاخضار')">-</button>
+<input id="توستبيتزاخضار-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('توستبيتزاخضار')">+</button>
+<button onclick="addToCart('توست بيتزا خضار', 15, 'توستبيتزاخضار')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="توست بيتزا دجاج" loading="lazy" src="toastpizzachecken.jpg"/>
+<p>توست بيتزا دجاج - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="توستبيتزادجاج-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('توستبيتزادجاج')">-</button>
+<input id="توستبيتزادجاج-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('توستبيتزادجاج')">+</button>
+<button onclick="addToCart('توست بيتزا دجاج', 15, 'توستبيتزادجاج')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="توست بيض" loading="lazy" src="toastegg.jpg"/>
+<p>توست بيض - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="توستبيض-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('توستبيض')">-</button>
+<input id="توستبيض-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('توستبيض')">+</button>
+<button onclick="addToCart('توست بيض', 15, 'توستبيض')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="توست جبن وزعتر" loading="lazy" src="toastjebnzattar.jpg"/>
+<p>توست جبن وزعتر - 10 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('توستجبنوزعتر')">-</button>
+<input id="توستجبنوزعتر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('توستجبنوزعتر')">+</button>
+<button onclick="addToCart('توست جبن وزعتر', 10, 'توستجبنوزعتر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="توست كرافت عسل" loading="lazy" src="toastcarftasal.jpg"/>
+<p>توست كرافت عسل - 10 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="10" id="توستكرافتعسل-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('توستكرافتعسل')">-</button>
+<input id="توستكرافتعسل-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('توستكرافتعسل')">+</button>
+<button onclick="addToCart('توست كرافت عسل', 10, 'توستكرافتعسل')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="توست مارغيريتا" loading="lazy" src="toastmargarita.jpg"/>
+<p>توست مارغيريتا - 10 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="10" id="توستمارغيريتا-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('توستمارغيريتا')">-</button>
+<input id="توستمارغيريتا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('توستمارغيريتا')">+</button>
+<button onclick="addToCart('توست مارغيريتا', 10, 'توستمارغيريتا')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="desserts">
+<h2>حلويات</h2>
+<!-- حلويات menu items here -->
+<div class="menu-item">
+<img alt="تشيز كيك" loading="lazy" src="cheesecake.jpg"/>
+<p>تشيز كيك - 30 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="30" id="تشيزكيك-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('تشيزكيك')">-</button>
+<input id="تشيزكيك-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('تشيزكيك')">+</button>
+<button onclick="addToCart('تشيز كيك', 30, 'تشيزكيك')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="دانيز كوكيز" loading="lazy" src="danizecookies.jpg"/>
+<p>دانيز كوكيز - 36 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="36" id="دانيزكوكيز-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('دانيزكوكيز')">-</button>
+<input id="دانيزكوكيز-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('دانيزكوكيز')">+</button>
+<button onclick="addToCart('دانيز كوكيز', 36, 'دانيزكوكيز')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كيكة سان سباستيان" loading="lazy" src="cakesanspastian.jpg"/>
+<p>كيكة سان سباستيان - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="28" id="كيكةسانسباستيان-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كيكةسانسباستيان')">-</button>
+<input id="كيكةسانسباستيان-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كيكةسانسباستيان')">+</button>
+<button onclick="addToCart('كيكة سان سباستيان', 28, 'كيكةسانسباستيان')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كيكة سلمندر" loading="lazy" src="salamandercake.jpg"/>
+<p>كيكة سلمندر - 30 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="30" id="كيكةسلمندر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كيكةسلمندر')">-</button>
+<input id="كيكةسلمندر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كيكةسلمندر')">+</button>
+<button onclick="addToCart('كيكة سلمندر', 30, 'كيكةسلمندر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كيكة شوكولاتة" loading="lazy" src="choclatecake.jpg"/>
+<p>كيكة شوكولاتة - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="28" id="كيكةشوكولاتة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كيكةشوكولاتة')">-</button>
+<input id="كيكةشوكولاتة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كيكةشوكولاتة')">+</button>
+<button onclick="addToCart('كيكة شوكولاتة', 28, 'كيكةشوكولاتة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بان كيك سلمندر" loading="lazy" src="pansalamander.jpg"/>
+<p>بان كيك سلمندر - 30 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="30" id="بانكيكسلمندر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بانكيكسلمندر')">-</button>
+<input id="بانكيكسلمندر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بانكيكسلمندر')">+</button>
+<button onclick="addToCart('بان كيك سلمندر', 30, 'بانكيكسلمندر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بان كيك نوتيلا" loading="lazy" src="pannotella.jpg"/>
+<p>بان كيك نوتيلا - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="بانكيكنوتيلا-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بانكيكنوتيلا')">-</button>
+<input id="بانكيكنوتيلا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بانكيكنوتيلا')">+</button>
+<button onclick="addToCart('بان كيك نوتيلا', 25, 'بانكيكنوتيلا')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كيكة أوريو ايس كريم" loading="lazy" src="oreoice.jpg"/>
+<p>كيكة أوريو ايس كريم - 38 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="38" id="كيكةأوريوايسكريم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كيكةأوريوايسكريم')">-</button>
+<input id="كيكةأوريوايسكريم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كيكةأوريوايسكريم')">+</button>
+<button onclick="addToCart('كيكة أوريو ايس كريم', 38, 'كيكةأوريوايسكريم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كيكة اوريو تشيز ايس كريم" loading="lazy" src="oreocheaseice.jpg"/>
+<p>كيكة اوريو تشيز ايس كريم - 38 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="38" id="كيكةاوريوتشيزايسكريم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كيكةاوريوتشيزايسكريم')">-</button>
+<input id="كيكةاوريوتشيزايسكريم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كيكةاوريوتشيزايسكريم')">+</button>
+<button onclick="addToCart('كيكة اوريو تشيز ايس كريم', 38, 'كيكةاوريوتشيزايسكريم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="shawarma-sandwiches">
+<h2>شاورما وسندويشات</h2>
+<!-- شاورما وسندويشات menu items here -->
+<div class="menu-item">
+  <img alt="دجاج راب" loading="lazy" src="chickenrab.jpg"/>
+  <p>دجاج راب - 15 درهم</p>
+  <div style="margin-top:10px;">
+    <div data-price="15" id="دجاجراب-price" style="display:none;"></div>
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+    <button onclick="decrement('دجاجراب')">-</button>
+    <input id="دجاجراب-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('دجاجراب')">+</button>
+    <button onclick="addToCart('دجاج راب', 15, 'دجاجراب')" style="margin-right:10px;">إضافة</button>
+  </div>
+</div>
+
+<div class="menu-item">
+<img alt="ساندويتش حلومي" loading="lazy" src="halomisanwaish.jpg"/>
+<p>ساندويتش حلومي - 18 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="18" id="ساندويتشحلومي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ساندويتشحلومي')">-</button>
+<input id="ساندويتشحلومي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ساندويتشحلومي')">+</button>
+<button onclick="addToCart('ساندويتش حلومي', 18, 'ساندويتشحلومي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ساندويتش كبدة" loading="lazy" src="kebdasandwish.jpg"/>
+<p>ساندويتش كبدة - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="ساندويتشكبدة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ساندويتشكبدة')">-</button>
+<input id="ساندويتشكبدة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ساندويتشكبدة')">+</button>
+<button onclick="addToCart('ساندويتش كبدة', 20, 'ساندويتشكبدة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاورما إيطالية" loading="lazy" src="shawarmaitalia.jpg"/>
+<p>شاورما إيطالية - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="شاورماإيطالية-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شاورماإيطالية')">-</button>
+<input id="شاورماإيطالية-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شاورماإيطالية')">+</button>
+<button onclick="addToCart('شاورما إيطالية', 25, 'شاورماإيطالية')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاورما دجاج عربي" loading="lazy" src="shawrmaarabichicken.jpg"/>
+<p>شاورما دجاج عربي - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="شاورمادجاجعربي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شاورمادجاجعربي')">-</button>
+<input id="شاورمادجاجعربي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شاورمادجاجعربي')">+</button>
+<button onclick="addToCart('شاورما دجاج عربي', 20, 'شاورمادجاجعربي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاورما كلاسيكية" loading="lazy" src="classicshawrma.jpg"/>
+<p>شاورما كلاسيكية - 8 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="8" id="شاورماكلاسيكية-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شاورماكلاسيكية')">-</button>
+<input id="شاورماكلاسيكية-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شاورماكلاسيكية')">+</button>
+<button onclick="addToCart('شاورما كلاسيكية', 8, 'شاورماكلاسيكية')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاورما مكسيكية" loading="lazy" src="shawrmamaksikia.jpg"/>
+<p>شاورما مكسيكية - 8 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="8" id="شاورمامكسيكية-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شاورمامكسيكية')">-</button>
+<input id="شاورمامكسيكية-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شاورمامكسيكية')">+</button>
+<button onclick="addToCart('شاورما مكسيكية', 8, 'شاورمامكسيكية')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="فاهيتا دجاج" loading="lazy" src="fahitachicken.jpg"/>
+<p>فاهيتا دجاج - 26 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="26" id="فاهيتادجاج-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فاهيتادجاج')">-</button>
+<input id="فاهيتادجاج-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فاهيتادجاج')">+</button>
+<button onclick="addToCart('فاهيتا دجاج', 45, 'فاهيتادجاج')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ساندويتس تكة" loading="lazy" src="tekasan.jpg"/>
+<p>ساندويتس تكة - 18 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="18" id="ساندويتستكة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ساندويتستكة')">-</button>
+<input id="ساندويتستكة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ساندويتستكة')">+</button>
+<button onclick="addToCart('ساندويتس تكة', 18, 'ساندويتستكة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ساندويتش كباب" loading="lazy" src="kababsan.jpg"/>
+<p>ساندويتش كباب - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="ساندويتشكباب-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ساندويتشكباب')">-</button>
+<input id="ساندويتشكباب-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ساندويتشكباب')">+</button>
+<button onclick="addToCart('ساندويتش كباب', 15, 'ساندويتشكباب')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="juices">
+<h2>عصائر ومشروبات غازية</h2>
+<!-- عصائر menu items here -->
+<div class="menu-item">
+<img alt="أفوكادو عسل" loading="lazy" src="afocadoasal.jpg"/>
+<p>أفوكادو عسل - 18 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="18" id="أفوكادوعسل-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('أفوكادوعسل')">-</button>
+<input id="أفوكادوعسل-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('أفوكادوعسل')">+</button>
+<button onclick="addToCart('أفوكادو عسل', 18, 'أفوكادوعسل')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="برتقال" loading="lazy" src="orange.jpg"/>
+<p>برتقال - 18 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="18" id="برتقال-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('برتقال')">-</button>
+<input id="برتقال-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('برتقال')">+</button>
+<button onclick="addToCart('برتقال', 18, 'برتقال')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="برتقال وأناناس" loading="lazy" src="ananasorange.jpg"/>
+<p>برتقال وأناناس - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="برتقالوأناناس-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('برتقالوأناناس')">-</button>
+<input id="برتقالوأناناس-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('برتقالوأناناس')">+</button>
+<button onclick="addToCart('برتقال وأناناس', 20, 'برتقالوأناناس')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="برتقال وجزر" loading="lazy" src="jazarorange.jpg"/>
+<p>برتقال وجزر - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="برتقالوجزر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('برتقالوجزر')">-</button>
+<input id="برتقالوجزر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('برتقالوجزر')">+</button>
+<button onclick="addToCart('برتقال وجزر', 20, 'برتقالوجزر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بطيخ" loading="lazy" src="batiekh.jpg"/>
+<p>بطيخ - 16 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="16" id="بطيخ-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بطيخ')">-</button>
+<input id="بطيخ-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بطيخ')">+</button>
+<button onclick="addToCart('بطيخ', 16, 'بطيخ')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="تفاح" loading="lazy" src="apple.jpg"/>
+<p>تفاح - 16 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="16" id="تفاح-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('تفاح')">-</button>
+<input id="تفاح-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('تفاح')">+</button>
+<button onclick="addToCart('تفاح', 16, 'تفاح')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="رمان" loading="lazy" src="roman.jpg"/>
+<p>رمان - 18 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="18" id="رمان-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('رمان')">-</button>
+<input id="رمان-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('رمان')">+</button>
+<button onclick="addToCart('رمان', 18, 'رمان')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="رمان وبنجر" loading="lazy" src="romanwenger.jpg"/>
+<p>رمان وبنجر - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="رمانوبنجر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('رمانوبنجر')">-</button>
+<input id="رمانوبنجر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('رمانوبنجر')">+</button>
+<button onclick="addToCart('رمان وبنجر', 20, 'رمانوبنجر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سلمندر سبيشال" loading="lazy" src="slamaderspecial.jpg"/>
+<p>سلمندر سبيشال - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="سلمندرسبيشال-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سلمندرسبيشال')">-</button>
+<input id="سلمندرسبيشال-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سلمندرسبيشال')">+</button>
+<button onclick="addToCart('سلمندر سبيشال', 20, 'سلمندرسبيشال')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="فيمتو" loading="lazy" src="vemto.jpg"/>
+<p>فيمتو - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="فيمتو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فيمتو')">-</button>
+<input id="فيمتو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فيمتو')">+</button>
+<button onclick="addToCart('فيمتو', 15, 'فيمتو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كوكتيل" loading="lazy" src="coctail.jpg"/>
+<p>كوكتيل - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="كوكتيل-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كوكتيل')">-</button>
+<input id="كوكتيل-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كوكتيل')">+</button>
+<button onclick="addToCart('كوكتيل', 20, 'كوكتيل')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاي ليمون مثلج" loading="lazy" src="lemonicetea.jpg"/>
+<p>شاي ليمون مثلج - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="شايليمونمثلج-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شايليمونمثلج')">-</button>
+<input id="شايليمونمثلج-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شايليمونمثلج')">+</button>
+<button onclick="addToCart('شاي ليمون مثلج', 20, 'شايليمونمثلج')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ليمون نعناع" loading="lazy" src="lemonnanaa.jpg"/>
+<p>ليمون نعناع - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="ليموننعناع-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ليموننعناع')">-</button>
+<input id="ليموننعناع-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ليموننعناع')">+</button>
+<button onclick="addToCart('ليمون نعناع', 15, 'ليموننعناع')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="مانجو" loading="lazy" src="mango.jpg"/>
+<p>مانجو - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="مانجو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('مانجو')">-</button>
+<input id="مانجو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('مانجو')">+</button>
+<button onclick="addToCart('مانجو', 15, 'مانجو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="موز حليب" loading="lazy" src="mozhaleeb.jpg"/>
+<p>موز حليب - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="موزحليب-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('موزحليب')">-</button>
+<input id="موزحليب-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('موزحليب')">+</button>
+<button onclick="addToCart('موز حليب', 15, 'موزحليب')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كركديه" loading="lazy" src="karkadijuce.jpg"/>
+<p>كركديه - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="كركديه-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كركديه')">-</button>
+<input id="كركديه-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كركديه')">+</button>
+<button onclick="addToCart('كركديه', 15, 'كركديه')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بيبسي" loading="lazy" src="pepsi.jpg"/>
+<p>بيبسي - 4 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="4" id="بيبسي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بيبسي')">-</button>
+<input id="بيبسي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بيبسي')">+</button>
+<button onclick="addToCart('بيبسي', 4, 'بيبسي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="دايت بيبسي" loading="lazy" src="pepsidiet.jpg"/>
+<p>دايت بيبسي - 4 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="4" id="دايتبيبسي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('دايتبيبسي')">-</button>
+<input id="دايتبيبسي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('دايتبيبسي')">+</button>
+<button onclick="addToCart('دايت بيبسي', 4, 'دايتبيبسي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاني" loading="lazy" src="shani.jpg"/>
+<p>شاني - 4 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="4" id="شاني-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شاني')">-</button>
+<input id="شاني-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شاني')">+</button>
+<button onclick="addToCart('شاني', 4, 'شاني')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سفن اب" loading="lazy" src="sevenup.jpg"/>
+<p>سفن اب - 4 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="4" id="سفناب-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سفناب')">-</button>
+<input id="سفناب-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سفناب')">+</button>
+<button onclick="addToCart('سفن اب', 4, 'سفناب')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+  <img alt="ميرندا" loading="lazy" src="miranda.jpg"/>
+  <p>ميرندا - 4 دراهم</p>
+  <div style="margin-top:10px;">
+    <div data-price="4" id="ميرندا-price" style="display:none;"></div>
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+    <button onclick="decrement('ميرندا')">-</button>
+    <input id="ميرندا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('ميرندا')">+</button>
+    <button onclick="addToCart('ميرندا', 4, 'ميرندا')" style="margin-right:10px;">إضافة</button>
+  </div>
+</div>
+
+<div class="menu-item">
+  <img alt="ماء كبير" loading="lazy" src="bigwater.jpg"/>
+  <p>ماء كبير - 5 دراهم</p>
+  <div style="margin-top:10px;">
+    <div data-price="5" id="ماءكبير-price" style="display:none;"></div>
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+  </div>
+  <div class="quantity-controls" style="margin-top:10px;">
+    <button onclick="decrement('ماءكبير')">-</button>
+    <input id="ماءكبير-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+    <button onclick="increment('ماءكبير')">+</button>
+    <button onclick="addToCart('ماء كبير', 5, 'ماءكبير')" style="margin-right:10px;">إضافة</button>
+  </div>
+</div>
+
+</section>
+<section class="tab-content" id="specialty-coffee">
+<h2>قهوة متخصصة</h2>
+<!-- قهوة متخصصة menu items here -->
+<div class="menu-item">
+<img alt="بارد V60" loading="lazy" src="v60cold.jpg"/>
+<p>بارد V60 - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="60" id="باردV60-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('باردV60')">-</button>
+<input id="باردV60-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('باردV60')">+</button>
+<button onclick="addToCart('بارد V60', 28, 'باردV60')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ساخن V60" loading="lazy" src="v60hot.jpg"/>
+<p>ساخن V60 - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="60" id="ساخنV60-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ساخنV60')">-</button>
+<input id="ساخنV60-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ساخنV60')">+</button>
+<button onclick="addToCart('ساخن V60', 28, 'ساخنV60')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="إسبريسو" loading="lazy" src="spresso.jpg"/>
+<p>إسبريسو - 18 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="18" id="إسبريسو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('إسبريسو')">-</button>
+<input id="إسبريسو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('إسبريسو')">+</button>
+<button onclick="addToCart('إسبريسو', 18, 'إسبريسو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="دبل إسبريسو" loading="lazy" src="doboulspresso.jpg"/>
+<p>دبل إسبريسو - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="دبلإسبريسو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('دبلإسبريسو')">-</button>
+<input id="دبلإسبريسو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('دبلإسبريسو')">+</button>
+<button onclick="addToCart('دبل إسبريسو', 20, 'دبلإسبريسو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="أمريكانو بارد" loading="lazy" src="coldamrecano.jpg"/>
+<p>أمريكانو بارد - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="أمريكانوبارد-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('أمريكانوبارد')">-</button>
+<input id="أمريكانوبارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('أمريكانوبارد')">+</button>
+<button onclick="addToCart('أمريكانو بارد', 20, 'أمريكانوبارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="أمريكانو ساخن" loading="lazy" src="hotamrecano.jpg"/>
+<p>أمريكانو ساخن - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="أمريكانوساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('أمريكانوساخن')">-</button>
+<input id="أمريكانوساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('أمريكانوساخن')">+</button>
+<button onclick="addToCart('أمريكانو ساخن', 20, 'أمريكانوساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بستاشو لاتيه بارد" loading="lazy" src="pestachiolattecold.jpg"/>
+<p>بستاشو لاتيه بارد - 28 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بستاشولاتيهبارد')">-</button>
+<input id="بستاشولاتيهبارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بستاشولاتيهبارد')">+</button>
+<button onclick="addToCart('بستاشو لاتيه بارد', 28, 'بستاشولاتيهبارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="روز لاتيه بارد" loading="lazy" src="rozelattecold.jpg"/>
+<p>روز لاتيه بارد - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="28" id="روزلاتيهبارد-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('روزلاتيهبارد')">-</button>
+<input id="روزلاتيهبارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('روزلاتيهبارد')">+</button>
+<button onclick="addToCart('روز لاتيه بارد', 28, 'روزلاتيهبارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="روز لاتيه ساخن" loading="lazy" src="rozelattehot.jpg"/>
+<p>روز لاتيه ساخن - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="28" id="روزلاتيهساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('روزلاتيهساخن')">-</button>
+<input id="روزلاتيهساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('روزلاتيهساخن')">+</button>
+<button onclick="addToCart('روز لاتيه ساخن', 28, 'روزلاتيهساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="زعفران لاتيه بارد" loading="lazy" src="coldzafranlatte.jpg"/>
+<p>زعفران لاتيه بارد - 28 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('زعفرانلاتيهبارد')">-</button>
+<input id="زعفرانلاتيهبارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('زعفرانلاتيهبارد')">+</button>
+<button onclick="addToCart('زعفران لاتيه بارد', 28, 'زعفرانلاتيهبارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="زعفران لاتيه ساخن" loading="lazy" src="zafranlattehot.jpg"/>
+<p>زعفران لاتيه ساخن - 28 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('زعفرانلاتيهساخن')">-</button>
+<input id="زعفرانلاتيهساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('زعفرانلاتيهساخن')">+</button>
+<button onclick="addToCart('زعفران لاتيه ساخن', 28, 'زعفرانلاتيهساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سبانيش لاتيه بارد" loading="lazy" src="spanishlattecold.jpg"/>
+<p>سبانيش لاتيه بارد - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="سبانيشلاتيهبارد-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سبانيشلاتيهبارد')">-</button>
+<input id="سبانيشلاتيهبارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سبانيشلاتيهبارد')">+</button>
+<button onclick="addToCart('سبانيش لاتيه بارد', 25, 'سبانيشلاتيهبارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سبانيش لاتيه ساخن" loading="lazy" src="spanishlattehot.jpg"/>
+<p>سبانيش لاتيه ساخن - 25 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سبانيشلاتيهساخن')">-</button>
+<input id="سبانيشلاتيهساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سبانيشلاتيهساخن')">+</button>
+<button onclick="addToCart('سبانيش لاتيه ساخن', 25, 'سبانيشلاتيهساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شوكولاتة إيطالية ساخن " loading="lazy" src="italychoclatehot.jpg"/>
+<p>شوكولاتة إيطالية ساخن - 21 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="21" id="شوكولاتةإيطاليةساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شوكولاتةإيطاليةساخن')">-</button>
+<input id="شوكولاتةإيطاليةساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شوكولاتةإيطاليةساخن')">+</button>
+<button onclick="addToCart('شوكولاتة إيطالية ساخن', 21, 'شوكولاتةإيطاليةساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="فلات وايت ساخن" loading="lazy" src="flatwhitehot.jpg"/>
+<p>فلات وايت ساخن - 23 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="23" id="فلاتوايتساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فلاتوايتساخن')">-</button>
+<input id="فلاتوايتساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فلاتوايتساخن')">+</button>
+<button onclick="addToCart('فلات وايت ساخن', 23, 'فلاتوايتساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="قهوة تركية" loading="lazy" src="turkishcoffe.jpg"/>
+<p>قهوة تركية - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="قهوةتركية-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('قهوةتركية')">-</button>
+<input id="قهوةتركية-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('قهوةتركية')">+</button>
+<button onclick="addToCart('قهوة تركية', 15, 'قهوةتركية')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="قهوة عربية" loading="lazy" src="arabiccoffe.jpg"/>
+<p>قهوة عربية - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="قهوةعربية-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('قهوةعربية')">-</button>
+<input id="قهوةعربية-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('قهوةعربية')">+</button>
+<button onclick="addToCart('قهوة عربية', 25, 'قهوةعربية')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كابتشينو ساخن" loading="lazy" src="cappchinohot.jpg"/>
+<p>كابتشينو ساخن - 23 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="23" id="كابتشينوساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كابتشينوساخن')">-</button>
+<input id="كابتشينوساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كابتشينوساخن')">+</button>
+<button onclick="addToCart('كابتشينو ساخن', 23, 'كابتشينوساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كورتادو ساخن" loading="lazy" src="cortatohot.jpg"/>
+<p>كورتادو ساخن - 22 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كورتادوساخن')">-</button>
+<input id="كورتادوساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كورتادوساخن')">+</button>
+<button onclick="addToCart('كورتادو ساخن', 22, 'كورتادوساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كوفي لاتيه" loading="lazy" src="coffelatte.jpg"/>
+<p>كوفي لاتيه - 23 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="23" id="كوفيلاتيه-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كوفيلاتيه')">-</button>
+<input id="كوفيلاتيه-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كوفيلاتيه')">+</button>
+<button onclick="addToCart('كوفي لاتيه', 23, 'كوفيلاتيه')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كولد برو" loading="lazy" src="coldbro.jpg"/>
+<p>كولد برو - 30 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="30" id="كولدبرو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كولدبرو')">-</button>
+<input id="كولدبرو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كولدبرو')">+</button>
+<button onclick="addToCart('كولد برو', 30, 'كولدبرو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ماتشا بارد" loading="lazy" src="coldmatsha.jpg"/>
+<p>ماتشا بارد - 25 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ماتشابارد')">-</button>
+<input id="ماتشابارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ماتشابارد')">+</button>
+<button onclick="addToCart('ماتشا بارد', 25, 'ماتشابارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ماتشا ساخن" loading="lazy" src="hotmatsha.jpg"/>
+<p>ماتشا ساخن - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="ماتشاساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ماتشاساخن')">-</button>
+<input id="ماتشاساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ماتشاساخن')">+</button>
+<button onclick="addToCart('ماتشا ساخن', 25, 'ماتشاساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ماكياتو" loading="lazy" src="maciato.jpg"/>
+<p>ماكياتو - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="ماكياتو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ماكياتو')">-</button>
+<input id="ماكياتو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ماكياتو')">+</button>
+<button onclick="addToCart('ماكياتو', 20, 'ماكياتو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="افوكادو بارد" loading="lazy" src="coldavocado.jpg"/>
+<p>افوكادو بارد - 23 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="23" id="افوكادوبارد-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('افوكادوبارد')">-</button>
+<input id="افوكادوبارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('افوكادوبارد')">+</button>
+<button onclick="addToCart('افوكادو بارد', 23, 'افوكادوبارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="آيس لاتيه" loading="lazy" src="icelattie.JPG"/>
+<p>آيس لاتيه - 23 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="23" id="آيسلاتيه-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('آيسلاتيه')">-</button>
+<input id="آيسلاتيه-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('آيسلاتيه')">+</button>
+<button onclick="addToCart('آيس لاتيه', 23, 'آيسلاتيه')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="آيس موكا بارد" loading="lazy" src="coldicemocka.JPG"/>
+<p>آيس موكا بارد - 23 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="23" id="آيسموكابارد-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('آيسموكابارد')">-</button>
+<input id="آيسموكابارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('آيسموكابارد')">+</button>
+<button onclick="addToCart('آيس موكا بارد', 23, 'آيسموكابارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="آيس وايت موكا" loading="lazy" src="icewhitemocka.JPG"/>
+<p>آيس وايت موكا - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="آيسوايتموكا-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('آيسوايتموكا')">-</button>
+<input id="آيسوايتموكا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('آيسوايتموكا')">+</button>
+<button onclick="addToCart('آيس وايت موكا', 25, 'آيسوايتموكا')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بستاشو لاتيه ساخن" loading="lazy" src="pestachiolattehot.jpg"/>
+<p>بستاشو لاتيه ساخن - 28 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="28" id="بستاشولاتيهساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بستاشولاتيهساخن')">-</button>
+<input id="بستاشولاتيهساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بستاشولاتيهساخن')">+</button>
+<button onclick="addToCart('بستاشو لاتيه ساخن', 28, 'بستاشولاتيهساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="بيكولو" loading="lazy" src="pecolo.jpg"/>
+<p>بيكولو - 21 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="21" id="بيكولو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بيكولو')">-</button>
+<input id="بيكولو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بيكولو')">+</button>
+<button onclick="addToCart('بيكولو', 21, 'بيكولو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سبانيش بيكولو" loading="lazy" src="spanishpecolo.jpg"/>
+<p>سبانيش بيكولو - 23 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="23" id="سبانيشبيكولو-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سبانيشبيكولو')">-</button>
+<input id="سبانيشبيكولو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سبانيشبيكولو')">+</button>
+<button onclick="addToCart('سبانيش بيكولو', 23, 'سبانيشبيكولو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كارميل لاتيه بارد" loading="lazy" src="carmellattecold.jpg"/>
+<p>كارميل لاتيه بارد - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="كارميللاتيهبارد-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كارميللاتيهبارد')">-</button>
+<input id="كارميللاتيهبارد-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كارميللاتيهبارد')">+</button>
+<button onclick="addToCart('كارميل لاتيه بارد', 25, 'كارميللاتيهبارد')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كارميل لاتيه ساخن" loading="lazy" src="caramelelattehot.jpg"/>
+<p>كارميل لاتيه ساخن - 25 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كارميللاتيهساخن')">-</button>
+<input id="كارميللاتيهساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كارميللاتيهساخن')">+</button>
+<button onclick="addToCart('كارميل لاتيه ساخن', 25, 'كارميللاتيهساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="موكا ساخن" loading="lazy" src="hotmoka.jpg"/>
+<p>موكا ساخن - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="موكاساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('موكاساخن')">-</button>
+<input id="موكاساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('موكاساخن')">+</button>
+<button onclick="addToCart('موكا ساخن', 25, 'موكاساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="موكا فرابتشينو" loading="lazy" src="mokapharpachino.jpg"/>
+<p>موكا فرابتشينو - 30 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('موكافرابتشينو')">-</button>
+<input id="موكافرابتشينو-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('موكافرابتشينو')">+</button>
+<button onclick="addToCart('موكا فرابتشينو', 30, 'موكافرابتشينو')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="وايت موكا ساخن" loading="lazy" src="hotwhitemoka.jpg"/>
+<p>وايت موكا ساخن - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="وايتموكاساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('وايتموكاساخن')">-</button>
+<input id="وايتموكاساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('وايتموكاساخن')">+</button>
+<button onclick="addToCart('وايت موكا ساخن', 25, 'وايتموكاساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="hot-drinks">
+<h2>مشروبات ساخنة</h2>
+<!-- مشروبات ساخنة menu items here -->
+<div class="menu-item">
+<img alt="ابريق كرك" loading="lazy" src="karak.jpg"/>
+<p>ابريق كرك - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="ابريقكرك-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ابريقكرك')">-</button>
+<input id="ابريقكرك-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ابريقكرك')">+</button>
+<button onclick="addToCart('ابريق كرك', 20, 'ابريقكرك')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="زعتر" loading="lazy" src="zatar.jpg"/>
+<p>زعتر - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="زعتر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('زعتر')">-</button>
+<input id="زعتر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('زعتر')">+</button>
+<button onclick="addToCart('زعتر', 20, 'زعتر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="زنجبيل ليمون نعناع" loading="lazy" src="zanjbillemon.jpg"/>
+<p>زنجبيل ليمون نعناع - 10 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="10" id="زنجبيلليموننعناع-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('زنجبيلليموننعناع')">-</button>
+<input id="زنجبيلليموننعناع-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('زنجبيلليموننعناع')">+</button>
+<button onclick="addToCart('زنجبيل ليمون نعناع', 10, 'زنجبيلليموننعناع')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاي احمر" loading="lazy" src="redtea.jpg"/>
+<p>شاي احمر - 18 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شاياحمر')">-</button>
+<input id="شاياحمر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شاياحمر')">+</button>
+<button onclick="addToCart('شاي احمر', 18, 'شاياحمر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاي احمر مع مكسرات" loading="lazy" src="redteanuts.jpg"/>
+<p>شاي احمر مع مكسرات - 30 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="30" id="شاياحمرمعمكسرات-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شاياحمرمعمكسرات')">-</button>
+<input id="شاياحمرمعمكسرات-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شاياحمرمعمكسرات')">+</button>
+<button onclick="addToCart('شاي احمر مع مكسرات', 30, 'شاياحمرمعمكسرات')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاي اخضر" loading="lazy" src="greentea.jpg"/>
+<p>شاي اخضر - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="شاياخضر-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شاياخضر')">-</button>
+<input id="شاياخضر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شاياخضر')">+</button>
+<button onclick="addToCart('شاي اخضر', 20, 'شاياخضر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاي مغربي صغير" loading="lazy" src="smallmoroco.jpg"/>
+<p>شاي مغربي صغير - 20 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شايمغربيصغير')">-</button>
+<input id="شايمغربيصغير-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شايمغربيصغير')">+</button>
+<button onclick="addToCart('شاي مغربي صغير', 20, 'شايمغربيصغير')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شاي مغربي وسط" loading="lazy" src="middlemorroco.jpg"/>
+<p>شاي مغربي وسط - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="شايمغربيوسط-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شايمغربيوسط')">-</button>
+<input id="شايمغربيوسط-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شايمغربيوسط')">+</button>
+<button onclick="addToCart('شاي مغربي وسط', 25, 'شايمغربيوسط')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كركديه ساخن" loading="lazy" src="karkadi.jpg"/>
+<p>كركديه ساخن - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="كركديهساخن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كركديهساخن')">-</button>
+<input id="كركديهساخن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كركديهساخن')">+</button>
+<button onclick="addToCart('كركديه ساخن', 20, 'كركديهساخن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="knafa">
+<h2>كنافة</h2>
+<!-- كنافة menu items here -->
+<div class="menu-item">
+<img alt="كنافة جبن" loading="lazy" src="konafajebn.jpg"/>
+<p>كنافة جبن - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="كنافةجبن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كنافةجبن')">-</button>
+<input id="كنافةجبن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كنافةجبن')">+</button>
+<button onclick="addToCart('كنافة جبن', 15, 'كنافةجبن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كنافة فستق" loading="lazy" src="konafafstg.jpg"/>
+<p>كنافة فستق - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="كنافةفستق-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كنافةفستق')">-</button>
+<input id="كنافةفستق-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كنافةفستق')">+</button>
+<button onclick="addToCart('كنافة فستق', 20, 'كنافةفستق')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كنافة قشطة" loading="lazy" src="konafageshta.jpg"/>
+<p>كنافة قشطة - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="كنافةقشطة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كنافةقشطة')">-</button>
+<input id="كنافةقشطة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كنافةقشطة')">+</button>
+<button onclick="addToCart('كنافة قشطة', 15, 'كنافةقشطة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كنافة مشكلة" loading="lazy" src="konafamoshakla.jpg"/>
+<p>كنافة مشكلة - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="كنافةمشكلة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كنافةمشكلة')">-</button>
+<input id="كنافةمشكلة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كنافةمشكلة')">+</button>
+<button onclick="addToCart('كنافة مشكلة', 20, 'كنافةمشكلة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="كنافة نوتيلا" loading="lazy" src="konafanotila.jpg"/>
+<p>كنافة نوتيلا - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="كنافةنوتيلا-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كنافةنوتيلا')">-</button>
+<input id="كنافةنوتيلا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كنافةنوتيلا')">+</button>
+<button onclick="addToCart('كنافة نوتيلا', 20, 'كنافةنوتيلا')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content active-tab" id="appetizers">
+<h2>مقبلات</h2>
+<!-- مقبلات menu items here -->
+<div class="menu-item">
+<img alt="تبولة" loading="lazy" src="taboola.jpg"/>
+<p>تبولة - 17 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="17" id="تبولة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('تبولة')">-</button>
+<input id="تبولة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('تبولة')">+</button>
+<button onclick="addToCart('تبولة', 17, 'تبولة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="حمص" loading="lazy" src="hommos.jpg"/>
+<p>حمص - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="حمص-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('حمص')">-</button>
+<input id="حمص-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('حمص')">+</button>
+<button onclick="addToCart('حمص', 15, 'حمص')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="حمص مع لحم" loading="lazy" src="hommoslaham.jpg"/>
+<p>حمص مع لحم - 35 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="35" id="حمصمعلحم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('حمصمعلحم')">-</button>
+<input id="حمصمعلحم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('حمصمعلحم')">+</button>
+<button onclick="addToCart('حمص مع لحم', 35, 'حمصمعلحم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="حمص بيروتي" loading="lazy" src="hommosbairuti.jpg"/>
+<p>حمص بيروتي - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="حمصبيروتي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('حمصبيروتي')">-</button>
+<input id="حمصبيروتي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('حمصبيروتي')">+</button>
+<button onclick="addToCart('حمص بيروتي', 20, 'حمصبيروتي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سلطة جرجير" loading="lazy" src="jerjirslad.jpg"/>
+<p>سلطة جرجير - 17 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="17" id="سلطةجرجير-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سلطةجرجير')">-</button>
+<input id="سلطةجرجير-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سلطةجرجير')">+</button>
+<button onclick="addToCart('سلطة جرجير', 17, 'سلطةجرجير')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سلطة عربية" loading="lazy" src="arabicsalad.jpg"/>
+<p>سلطة عربية - 17 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="17" id="سلطةعربية-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سلطةعربية')">-</button>
+<input id="سلطةعربية-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سلطةعربية')">+</button>
+<button onclick="addToCart('سلطة عربية', 17, 'سلطةعربية')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شوربة عدس" loading="lazy" src="shorbatadas.jpg"/>
+<p>شوربة عدس - 10 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="10" id="شوربةعدس-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شوربةعدس')">-</button>
+<input id="شوربةعدس-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شوربةعدس')">+</button>
+<button onclick="addToCart('شوربة عدس', 10, 'شوربةعدس')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شوربة المشروم" loading="lazy" src="shorbatfitir.jpg"/>
+<p>شوربة المشروم - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="شوربةالمشروم-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شوربةالمشروم')">-</button>
+<input id="شوربةالمشروم-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شوربةالمشروم')">+</button>
+<button onclick="addToCart('شوربة المشروم', 20, 'شوربةالمشروم')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="فتوش" loading="lazy" src="ftosh.jpg"/>
+<p>فتوش - 17 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="17" id="فتوش-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فتوش')">-</button>
+<input id="فتوش-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فتوش')">+</button>
+<button onclick="addToCart('فتوش', 17, 'فتوش')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="لبنة" loading="lazy" src="labnah.jpg"/>
+<p>لبنة - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="لبنة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('لبنة')">-</button>
+<input id="لبنة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('لبنة')">+</button>
+<button onclick="addToCart('لبنة', 15, 'لبنة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="لبنة حارة" loading="lazy" src="hotlabnah.jpg"/>
+<p>لبنة حارة - 17 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="17" id="لبنةحارة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('لبنةحارة')">-</button>
+<input id="لبنةحارة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('لبنةحارة')">+</button>
+<button onclick="addToCart('لبنة حارة', 17, 'لبنةحارة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="سلطة سلمندر" loading="lazy" src="slamanderslad.jpg"/>
+<p>سلطة سلمندر - 38 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سلطةسلمندر')">-</button>
+<input id="سلطةسلمندر-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سلطةسلمندر')">+</button>
+<button onclick="addToCart('سلطة سلمندر', 38, 'سلطةسلمندر')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="متبل" loading="lazy" src="motbl.jpg"/>
+<p>متبل - 18 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('متبل')">-</button>
+<input id="متبل-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('متبل')">+</button>
+<button onclick="addToCart('متبل', 18, 'متبل')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="مكسرات" loading="lazy" src="moksarat.jpg"/>
+<p>مكسرات - 15 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="15" id="مكسرات-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('مكسرات')">-</button>
+<input id="مكسرات-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('مكسرات')">+</button>
+<button onclick="addToCart('مكسرات', 15, 'مكسرات')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="Mojito">
+<h2>موهيتو</h2>
+<!-- mohito menu items here -->
+<div class="menu-item">
+<img alt=" باشن فروت" loading="lazy" src="pationfruit.jpg"/>
+<p>باشن فروت - 20 درهم</p>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('باشنفروت')">-</button>
+<input id="باشنفروت-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('باشنفروت')">+</button>
+<button onclick="addToCart('باشن فروت', 20, 'باشنفروت')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" بلو بيري" loading="lazy" src="blueberry.jpg"/>
+<p>بلو بيري - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="بلوبيري-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('بلوبيري')">-</button>
+<input id="بلوبيري-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('بلوبيري')">+</button>
+<button onclick="addToCart('بلو بيري', 20, 'بلوبيري')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" سكاي" loading="lazy" src="sky.jpg"/>
+<p>سكاي - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="سكاي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('سكاي')">-</button>
+<input id="سكاي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('سكاي')">+</button>
+<button onclick="addToCart('سكاي', 20, 'سكاي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" فراولة" loading="lazy" src="farawla.jpg"/>
+<p>فراولة - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="فراولة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فراولة')">-</button>
+<input id="فراولة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فراولة')">+</button>
+<button onclick="addToCart('فراولة', 20, 'فراولة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" فيتامين سي" loading="lazy" src="vitaminc.jpg"/>
+<p>فيتامين سي - 30 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="30" id="فيتامينسي-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فيتامينسي')">-</button>
+<input id="فيتامينسي-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فيتامينسي')">+</button>
+<button onclick="addToCart('فيتامين سي', 30, 'فيتامينسي')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" كلاسيك " loading="lazy" src="classic.jpg"/>
+<p>كلاسيك - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="كلاسيك-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('كلاسيك')">-</button>
+<input id="كلاسيك-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('كلاسيك')">+</button>
+<button onclick="addToCart('كلاسيك', 20, 'كلاسيك')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="مانجو باشن " loading="lazy" src="mangopation.jpg"/>
+<p>مانجو باشن - 20 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="20" id="مانجوباشن-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('مانجوباشن')">-</button>
+<input id="مانجوباشن-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('مانجوباشن')">+</button>
+<button onclick="addToCart('مانجو باشن', 20, 'مانجوباشن')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<section class="tab-content" id="milkshake">
+<h2>ميلك شيك</h2>
+<!-- milkshake menu items here -->
+<div class="menu-item">
+<img alt=" روز " loading="lazy" src="rose.jpg"/>
+<p>روز - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="روز-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('روز')">-</button>
+<input id="روز-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('روز')">+</button>
+<button onclick="addToCart('روز', 25, 'روز')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" زعفران" loading="lazy" src="zafran.jpg"/>
+<p>زعفران - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="زعفران-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('زعفران')">-</button>
+<input id="زعفران-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('زعفران')">+</button>
+<button onclick="addToCart('زعفران', 25, 'زعفران')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="شوكولاتة" loading="lazy" src="shokolate.jpg"/>
+<p>شوكولاتة - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="شوكولاتة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('شوكولاتة')">-</button>
+<input id="شوكولاتة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('شوكولاتة')">+</button>
+<button onclick="addToCart('شوكولاتة', 25, 'شوكولاتة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" فراولة" loading="lazy" src="frawla.jpg"/>
+<p>فراولة - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="فراولة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فراولة')">-</button>
+<input id="فراولة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فراولة')">+</button>
+<button onclick="addToCart('فراولة', 20, 'فراولة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" فستق" loading="lazy" src="fostog.jpg"/>
+<p>فستق - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="فستق-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('فستق')">-</button>
+<input id="فستق-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('فستق')">+</button>
+<button onclick="addToCart('فستق', 25, 'فستق')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt=" قهوة" loading="lazy" src="qahwa.jpg"/>
+<p>قهوة - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="قهوة-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('قهوة')">-</button>
+<input id="قهوة-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('قهوة')">+</button>
+<button onclick="addToCart('قهوة', 25, 'قهوة')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+<div class="menu-item">
+<img alt="ماتشا" loading="lazy" src="matsha.jpg"/>
+<p>ماتشا - 25 درهم</p>
+<div style="margin-top:10px;">
+<div data-price="25" id="ماتشا-price" style="display:none;"></div>
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+</div>
+<div class="quantity-controls" style="margin-top:10px;">
+<button onclick="decrement('ماتشا')">-</button>
+<input id="ماتشا-qty" style="width:30px;text-align:center;" type="text" value="0"/>
+<button onclick="increment('ماتشا')">+</button>
+<button onclick="addToCart('ماتشا', 25, 'ماتشا')" style="margin-right:10px;">إضافة</button>
+</div>
+</div>
+</section>
+<script>
+const cart = {};
+
+function increment(itemId) {
+    const input = document.getElementById(itemId + '-qty');
+    let qty = parseInt(input.value) || 0;
+    input.value = qty + 1;
+}
+
+function decrement(itemId) {
+    const input = document.getElementById(itemId + '-qty');
+    let qty = parseInt(input.value) || 0;
+    if (qty > 0) {
+        input.value = qty - 1;
+    }
+}
+
+function updateCartCount() {
+    const cartBtn = document.getElementById("cart-count");
+    let totalItems = 0;
+    for (const item of Object.values(cart)) {
+        totalItems += item.quantity;
+    }
+    if (cartBtn) {
+        cartBtn.innerText = `إتمام الطلب (${totalItems})`;
+    }
+}
+
+function addToCart(displayName, price, itemId) {
+    const qtyInput = document.getElementById(itemId + '-qty');
+    const quantity = parseInt(qtyInput.value) || 0;
+
+    if (quantity <= 0) {
+        alert("يرجى تحديد كمية أكبر من صفر.");
+        return;
+    }
+
+    if (cart[displayName]) {
+        cart[displayName].quantity += quantity;
+    } else {
+        cart[displayName] = { price: price, quantity: quantity };
+    }
+
+    qtyInput.value = 0;
+    updateCartCount();
+}
+
+function proceedToWhatsApp() {
+    let message = '🛒 طلبية جديدة:\n';
+    let total = 0;
+    for (const name in cart) {
+        const item = cart[name];
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        message += `- ${name} × ${item.quantity} = ${itemTotal} درهم\n`;
+    }
+    message += `\n📦 الإجمالي: ${total} درهم`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = "https://wa.me/971545549695?text=" + encodedMessage;
+    window.open(whatsappURL, '_blank');
+}
+</script>
+<script>
+function showTab(tabId) {
+    var contents = document.querySelectorAll('.tab-content');
+    contents.forEach(function(content) {
+        content.classList.remove('active-tab');
+    });
+
+    var activeTab = document.getElementById(tabId);
+    if (activeTab) {
+        activeTab.classList.add('active-tab');
+    }
+}
+</script>
+<script>
+function toggleMenu(event) {
+    event.stopPropagation();
+    var menuItems = document.getElementById("menuItems");
+    menuItems.classList.toggle("active");
+}
+
+// إغلاق القائمة إذا ضغط المستخدم خارجها
+document.addEventListener('click', function (event) {
+    var isClickInside = document.querySelector('.mobile-menu').contains(event.target);
+    if (!isClickInside) {
+        document.getElementById("menuItems").classList.remove("active");
+    }
+});
+</script><script>
+document.querySelectorAll(".menu-items a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menuItems").classList.remove("active");
+  });
+});
+</script></body>
+</html>
